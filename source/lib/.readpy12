@@ -1,95 +1,63 @@
 import os
 import time
 
+lang = os.getenv('WIKI_LANG', 'es')
+lang_path = f"source/{lang}"
+
+ui_texts = {
+    'es': {
+        "prompt": "WIKI-SISTEMAS > ",
+        "pc_prompt": "WIKI-SISTEMAS-PC > ",
+        "mobile_prompt": "WIKI-SISTEMAS-MOVIL > ",
+        "continue_prompt": "PRESIONA ENTER PARA CONTINUAR...",
+        "invalid_option": "[!] Opcin invalida > ",
+        "back_to_menu": "Volver al men",
+        "ctrl_c": "\nCtrl c presionado"
+    },
+    'fr': {
+        "prompt": "WIKI-SYSTMES > ",
+        "pc_prompt": "WIKI-SYSTMES-PC > ",
+        "mobile_prompt": "WIKI-SYSTMES-MOBILE > ",
+        "continue_prompt": "APPUYEZ SUR ENTRE POUR CONTINUER...",
+        "invalid_option": "[!] Option invalide > ",
+        "back_to_menu": "Retour au menu",
+        "ctrl_c": "\nCtrl C press"
+    }
+}
+t = ui_texts.get(lang, ui_texts['es'])
+
 def f():
- a = input("PRESIONA ENTER PARA CONTINUAR...")
- if a != "₩":
-  os.system("bash source/info")
- else:
-  os.system("bash source/info")
+    a = input(t["continue_prompt"])
+    os.system(f"bash {lang_path}/info")
 
 try:
- c = input("\033[1;31mWIKI-\033[1;39mSISTEMAS > ")
- if c == "1" or c == "01":
-  print("\n\033[1;31m[\033[1;39m 1\033[1;31m ]\033[1;39m Ubuntu")
-  print("\033[1;31m[\033[1;39m 2\033[1;31m ]\033[1;39m Linux")
-  print("\033[1;31m[\033[1;39m 3\033[1;31m ]\033[1;39m Debian")
-  print("\033[1;31m[\033[1;39m 4\033[1;31m ]\033[1;39m Unix")
-  print("\033[1;31m[\033[1;39m 5\033[1;31m ]\033[1;39m Kali-Linux")
-  print("\033[1;31m[\033[1;39m 6\033[1;31m ]\033[1;39m Solaris\n")
-  print("\033[1;31m[\033[1;39m 99\033[1;31m ]\033[1;39m Volver al menú\n")
-  b = input("\033[1;31mWIKI-\033[1;39mSISTEMAS-PC > ")
-  if b == "1" or b == "01":
-   os.system("python source/art/ubuntu")
-   os.system("bash source/menu/menu_12/ubuntu")
-   f()
+    c = input(f"[1;31m{t['prompt']}[1;39m")
+    if c == "1" or c == "01":
+        print("\n[1;31m[[1;39m 1[1;31m ][1;39m Ubuntu"); print("[1;31m[[1;39m 2[1;31m ][1;39m Linux"); print("[1;31m[[1;39m 3[1;31m ][1;39m Debian"); print("[1;31m[[1;39m 4[1;31m ][1;39m Unix"); print("[1;31m[[1;39m 5[1;31m ][1;39m Kali-Linux"); print("[1;31m[[1;39m 6[1;31m ][1;39m Solaris\n")
+        print(f"[1;31m[[1;39m 99[1;31m ][1;39m {t['back_to_menu']}\n")
+        b = input(f"[1;31m{t['pc_prompt']}[1;39m")
+        if b == "1": os.system(f"python {lang_path}/art/ubuntu"); os.system(f"bash {lang_path}/menu/menu_12/ubuntu"); f()
+        elif b == "2": os.system(f"cat {lang_path}/art/linux"); os.system(f"bash {lang_path}/menu/menu_12/linux"); f()
+        elif b == "3": os.system(f"cat {lang_path}/art/debian"); os.system(f"bash {lang_path}/menu/menu_12/debian"); f()
+        elif b == "4": os.system(f"bash {lang_path}/menu/menu_12/unix"); f()
+        elif b == "5": os.system(f"bash {lang_path}/menu/menu_12/kali"); f()
+        elif b == "6": os.system(f"bash {lang_path}/menu/menu_12/solaris"); f()
+        elif b == "99": os.system(f"bash {lang_path}/info")
+        else: print(f"[1;31m{t['invalid_option']}",b); time.sleep(0.5); os.system(f"bash {lang_path}/info")
+    
+    elif c == "2" or c == "02":
+        print("\n[1;31m[[1;39m 1[1;31m ][1;39m Ubuntu Touch"); print("[1;31m[[1;39m 2[1;31m ][1;39m Kali-Nethunter"); print("[1;31m[[1;39m 3[1;31m ][1;39m Andrax\n")
+        print(f"[1;31m[[1;39m 99[1;31m ][1;39m {t['back_to_menu']}\n")
+        b = input(f"[1;31m{t['mobile_prompt']}[1;39m")
+        if b == "1": os.system(f"python {lang_path}/art/ubuntu"); os.system(f"bash {lang_path}/menu/menu_12/touch"); f()
+        elif b == "2": os.system(f"cat {lang_path}/art/linux"); os.system(f"bash {lang_path}/menu/menu_12/net"); f()
+        elif b == "3": os.system(f"cat {lang_path}/art/debian"); os.system(f"bash {lang_path}/menu/menu_12/andrax"); f()
+        elif b == "99": os.system(f"bash {lang_path}/info")
+        else: print(f"[1;31m{t['invalid_option']}",b); time.sleep(0.5); os.system(f"bash {lang_path}/info")
 
-  elif b == "2" or b == "02":
-   os.system("cat source/art/linux")
-   os.system("bash source/menu/menu_12/linux")
-   f()
-
-  elif b == "3" or b == "03":
-   os.system("cat source/art/debian")
-   os.system("bash source/menu/menu_12/debian")
-   f()
-
-  elif b == "4" or b == "04":
-   os.system("bash source/menu/menu_12/unix")
-   f()
-
-  elif b == "5" or b == "05":
-   os.system("bash source/menu/menu_12/kali")
-   f()
-
-  elif b == "6" or b == "06":
-   os.system("bash source/menu/menu_12/solaris")
-   f()
-
-  elif b == "99":
-   os.system("bash source/info")
-
-  else:
-   print("\033[1;31m[!]\033[1;3m Opción invalida > ",b)
-   time.sleep(0.5)
-   os.system("bash source/info")
- 
- elif c == "2" or c == "02":
-  print("\n\033[1;31m[\033[1;39m 1\033[1;31m ]\033[1;39m Ubuntu Touch")
-  print("\033[1;31m[\033[1;39m 2\033[1;31m ]\033[1;39m Kali-Nethunter")
-  print("\033[1;31m[\033[1;39m 3\033[1;31m ]\033[1;39m Andrax\n")
-  print("\033[1;31m[\033[1;39m 99\033[1;31m ]\033[1;39m Volver al menú\n")
-  b = input("\033[1;31mWIKI-\033[1;39mSISTEMAS-MOVIL > ")
-  if b == "1" or b == "01":
-   os.system("python source/art/ubuntu")
-   os.system("bash source/menu/menu_12/touch")
-   f()
-
-  elif b == "2" or b == "02":
-   os.system("cat source/art/linux")
-   os.system("bash source/menu/menu_12/net")
-   f()
-
-  elif b == "3" or b == "03":
-   os.system("cat source/art/debian")
-   os.system("bash source/menu/menu_12/andrax")
-   f()
-
-  elif b == "99":
-   os.system("bash source/info")
-
-  else:
-   print("\033[1;31m[!]\033[1;3m Opción invalida > ",b)
-   time.sleep(0.5)
-   os.system("bash source/info")
-
- elif c == "99":
-  os.system("bash wiki")
-
- else:
-  print("\033[1;31m[!]\033[1;39m Opción invalida > ",c)
-  time.sleep(1)
-  os.system("bash source/info")
+    elif c == "99": os.system("bash wiki")
+    else: print(f"[1;31m{t['invalid_option']}",c); time.sleep(1); os.system(f"bash {lang_path}/info")
 
 except KeyboardInterrupt:
- print("\033[1;39m\nCtrl c presionado")
+    print(f"
+{t['ctrl_c']}")

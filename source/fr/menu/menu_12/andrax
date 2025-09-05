@@ -1,0 +1,33 @@
+print(""" 
+
+yyyyyyyyyyyyyyyyyyysssoossssyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
+yyyyyyyyyyyyyyyyyyyoosyysshddhysssyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
+yyyyyyyyyyyyyyyyyyyyysosydmmdmmNMNddhyysssyyyyyyyyyyyyyyyyyyyyyyyyyyyy
+yyyyyyyyyyyyyyyyysssoshhhhhmMMMMMMMMMMMMNmhyssyyyyyyyyyyyyyyyyyyyyyyyy
+yyyyyyyyyyyyyyyysohmNNMMMMMMMMMMMMMMMMMMNdhmNNdhoyyyyyyyyyyyyyyyyyyyyy
+yyyyyyyyyyyyyyoshdNMMMMMMNdhhhyhhhdmNMMMMNNNMMMMdhyssssyyyyyyyyyyyyyyy
+yyyyyyyyyyyyyyoohMMMMMmysssyyyyyyyyyssyhhdmmNNMMMMMMMMNoyyyyyyyyyyyyyy
+ yyyyyyyyyyyyyoyNMMMMMyoyyyyyyyyyyyyyyyyyyyyssssssyhNMMMssyyyyyyyyyyyyy
+yyyyyyyyyyyyys+hMMMMN+yyyyyyyyyyyyyyyyyyyyyyyyyyyyyosMyoyyyyyyyyyyyyyy
+dyyyyyyyyyyyyosmmMMMMssyyyyyyyyyyyyyyyyyyyyyyyyyyyyysssyyyyyyyyyyyyyyy
+NyyyyyyyyyyyyysoyMMMMMhosyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
+MmyyyysssssssyyssdhNMMMMmhsssssyyyyyyyyyyyyyyyyyyyyysssssssyyysoooooos
+MMhyyyohMMMd+yyyssssNNNMMMMMNmmddhhhhhhhhhhhhyyysssoshMMMNosyy+dMMMdso
+MMNhyyoNMMMMssyyyyyssoosdNhhdmmmmmmmmmmmdddddddmmNmdyosNMMmosohMMNyoyy
+MMMNhodMMyMMNosoyyssyyoys+oyyyyysoosoyyyyyysosysosyhyhdydMMMhmMMdosyyy
+MMMMsyMMh+hMMm++dMNssy+Nd+oMNdddNMyo+MNddddMmoyy+mMNossssyNMMMNyoyyyyy
+MMMysMMm+o+mMMd+dMmMyo+Nd+oMdoyyodMs+Mm+oo+mM+yoyMhMdoyyooNMMMNsoyyyyy
+MMdoNMMNNNNNMMMydN+hMmoNd+oMdoyyoyMy+MMNNNMNyosoNd+hMyoohMMNhMMMdoyyyy
+MNomMMyyyyyyyMMMNM+osNNMm+oMdoysomMo+Mm+ohMyoyomMmmmNMsmMMmoosmMMNssyy
+modMMysMMMMdoyMMMM+ysomMm+oMNdddNNyo+Mm+yohMy+yMsososMMMMhoyyyodMMMhos
+oshhhsoNMMMMoshhhhosysoyyooyyyyysosyoyyoysoyyoyyosyosyyyysoyyyosyyyyyo
+
+
+\033[1;39mAndrax est une plateforme complète de piratage éthique. Elle a été développée exclusivement pour le système d'exploitation Android. Comme nous le savons, c'est le système le plus utilisé sur les appareils mobiles.
+
+Nous pouvons l'exécuter sur Android de manière native. Il se comporte comme s'il s'agissait d'une distribution Linux. Cependant, il tire parti des particularités du système d'exploitation mobile. Nous pouvons l'utiliser avec une grande agilité grâce à l'écran tactile et il présente des avantages graphiques.
+
+\033[1;33mInstallation:
+
+\033[1;39mhttps://www.hacking.land/2018/10/conoce-andrax-una-completa-plataforma.html?m=1
+""")

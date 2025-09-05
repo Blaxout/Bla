@@ -1,0 +1,4 @@
+#!/bin/bash
+lang_path="source/$WIKI_LANG"
+clear
+python "$lang_path/menu/menu_3/exa"

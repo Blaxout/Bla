@@ -1,0 +1,33 @@
+print(""" 
+\033[1;33mQu'utiliserons-nous?
+\033[1;39m
+Neofetch est un programme en langage bash, qui nous permet de voir dans le terminal les informations de base de notre matériel, ainsi que du logiciel qui l'entoure.
+\033[1;32m
+PAQUETS NÉCESSAIRES:
+\033[1;39m
+pkg install neofetch -y
+
+pkg install nano -y
+\033[1;33m
+PROCÉDURE:
+\033[1;36m
+Nous allons d'abord entrer dans le dossier etc pour modifier le fichier bash.bashrc:
+\033[1;39m
+cd /data/data/com.termux/files/usr/etc
+\033[1;36m
+Ici, nous supprimerons le fichier motd:
+\033[1;39m
+rm motd
+\033[1;36m
+Nous ouvrons le fichier bash.bashrc:
+\033[1;39m
+nano bash.bashrc
+\033[1;36m
+Ici, nous chercherons une variable appelée PS1, une fois localisée, nous écrirons ce qui suit ci-dessous:
+\033[1;39m
+neofetch
+\033[1;39m
+Nous enregistrons le fichier avec CTRL+x puis nous donnons à y
+
+Bien, maintenant nous ouvrirons une autre fenêtre et voilà, nous aurons personnalisé notre termux avec neofetch
+""")

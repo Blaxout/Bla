@@ -1,0 +1,18 @@
+{
+  "information_gathering" : "Outils de collecte d'informations",
+  "vulnerability_scanner" : "Outils de détection de vulnérabilités",
+  "exploitation_tools" : "Outils d'exploitation",
+  "forensics_tools" : "Outils d'analyse forensique",
+  "web_hacking" : "Outils de piratage Web",
+  "ip_tracking" : "Outils de suivi IP",
+  "stress_testing" : "Tests de stress",
+  "wireless_testing" : "Tests sans fil",
+  "phishing": "Phishing",
+  "sniffing_spoofing" : "Sniffing et Spoofing",
+  "password_attack" : "Attaques de mot de passe",
+  "ddos" : "Attaques DDOS",
+  "maintaining_access" : "Maintien d'accès",
+  "programming_language" : "Langages de programmation",
+  "web_server" : "Serveur Web",
+  "termux_os" : "Termux OS"
+}

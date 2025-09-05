@@ -1,0 +1,23 @@
+import os
+import sys
+from modules.menu import *
+
+# --- Language Setup ---
+lang = os.getenv('WIKI_LANG', 'es')
+
+# --- UI Translations ---
+ui_texts = {
+    'es': {
+        "ctrl_c": "\n\nCtrl C Presionado"
+    },
+    'fr': {
+        "ctrl_c": "\n\nCtrl C pressé"
+    }
+}
+t = ui_texts.get(lang, ui_texts['es'])
+
+if __name__=="__main__":
+  try:
+    main.menu()
+  except KeyboardInterrupt:
+    print(t["ctrl_c"])

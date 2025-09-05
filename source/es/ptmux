@@ -1,0 +1,4 @@
+clear
+lang_path="source/$WIKI_LANG"
+python "$lang_path/art/banner13"
+python source/lib/.readpy13

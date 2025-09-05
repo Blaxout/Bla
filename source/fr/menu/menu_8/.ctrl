@@ -1,0 +1,57 @@
+print('''
+\033[1;32mCtrl+a:\033[1;39m déplace le curseur au début de la ligne de commande.
+
+\033[1;32mCtrl+e:\033[1;39m déplace le curseur à la fin de la ligne de commande.
+
+\033[1;32mCtrl+l:\033[1;39m nettoie le terminal, similaire à la commande clear.
+
+\033[1;32mCtrl+u:\033[1;39m efface depuis la position du curseur jusqu'au début de la ligne. Si vous êtes à la fin, efface toute la ligne.
+
+\033[1;32mCtrl+k:\033[1;39m efface depuis la position du curseur jusqu'à la fin de la ligne. Si vous êtes au début, efface toute la ligne.
+
+\033[1;32mCtrl+h:\033[1;39m fait la même chose que la touche retour arrière, efface le caractère immédiatement avant le curseur.
+
+\033[1;32mCtrl+w: \033[1;39mefface le mot immédiatement avant le curseur.
+
+\033[1;32mAlt+d ou Esc+d: \033[1;39mefface le mot suivant après le curseur.
+
+\033[1;32mCtrl+p:\033[1;39m affiche la commande précédente dans l'historique.
+
+\033[1;32mCtrl+r:\033[1;39m lance une recherche dans les commandes utilisées précédemment.
+
+\033[1;32mCtrl+c:\033[1;39m termine le processus en cours d'exécution.
+
+\033[1;32mCtrl+d:\033[1;39m quitte le terminal, similaire à la commande exit.
+
+\033[1;32mCtrl+z:\033[1;39m suspend l'exécution du processus et le met en arrière-plan.
+
+\033[1;32mCtrl+t:\033[1;39m échange la position des deux caractères avant le curseur.
+
+\033[1;32mEsc+t:\033[1;39m échange la position des deux mots avant le curseur.
+
+\033[1;32mAlt+f:\033[1;39m déplace le curseur au début du mot suivant.
+
+\033[1;32mAlt+b:\033[1;39m déplace le curseur au début du mot précédent.
+
+\033[1;32mTab:\033[1;39m auto-complète les commandes ou les chemins.
+
+\033[1;33mAutres:
+
+\033[1;32mCtrl+Shift+f:\033[1;39m ouvre une boîte de dialogue pour rechercher du texte dans la sortie du terminal.
+
+\033[1;32mCtrl+Shift+g:\033[1;39m recherche l'occurrence suivante de la recherche précédente.
+
+\033[1;32mCtrl+Shift+h:\033[1;39m recherche l'occurrence précédente de la recherche précédente.
+
+\033[1;32mCtrl+Shift+c:\033[1;39m copie le texte sélectionné dans le presse-papiers.
+
+\033[1;32mCtrl+Shift+v:\033[1;39m colle le texte du presse-papiers.
+
+\033[1;32mHaut:\033[1;39m affiche la commande précédente de l'historique.
+
+\033[1;32mBas:\033[1;39m affiche la commande suivante de l'historique.
+
+\033[1;32mClic Gauche:\033[1;39m sélectionne des lignes de texte.
+
+\033[1;32mCtrl+Clic Gauche:\033[1;39m sélectionne des blocs de texte.
+''')

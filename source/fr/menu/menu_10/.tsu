@@ -1,0 +1,12 @@
+figlet tsu
+echo -e "\e[1;39m
+tsu (tsunami) est un wrapper su pour l'émulateur de terminal et les paquets pour Android, Termux. tsu se concentrera uniquement sur le passage au shell root depuis termux. Pour exécuter des commandes uniques en tant que root, tsu agit comme sudo.
+
+\e[1;32mInstallation:
+\e[1;39m$ pkg install tsu
+
+\e[1;33mUtilisation:
+\e[1;39m$ tsu
+
+\e[1;36mPoids:\e[1;39m 49.2KB
+"

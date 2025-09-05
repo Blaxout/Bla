@@ -1,48 +1,65 @@
 import os
+import sys
+
+# --- Language Setup ---
+lang = os.getenv('WIKI_LANG', 'es')
+lang_path = f"source/{lang}"
+
+# --- UI Translations ---
+ui_texts = {
+    'es': {
+        "exit_message": "Hasta luego",
+        "invalid_option": "Opción invalida > ",
+        "ctrl_c": "\n Ctrl C Presionado"
+    },
+    'fr': {
+        "exit_message": "Au revoir",
+        "invalid_option": "Option invalide > ",
+        "ctrl_c": "\n Ctrl C pressé"
+    }
+}
+t = ui_texts.get(lang, ui_texts['es'])
+
+# --- Display Banner ---
+os.system(f"python {lang_path}/art/banner0")
+
+# --- Main Menu ---
 try:
-	a = input("\033[1;39mW\033[1;31m I\033[1;39m K\033[1;31m I\033[1;33m -\033[1;39m T\033[1;31m E\033[1;39m R\033[1;31m M\033[1;39m U\033[1;31m X\033[1;39m ## > \033[1;39m")
+    a = input("\033[1;39mW\033[1;31m I\033[1;39m K\033[1;31m I\033[1;39m -\033[1;31m T\033[1;39m E\033[1;31m R\033[1;39m M\033[1;31m U\033[1;39m X\033[1;31m ## > \033[1;39m")
 
-	if a == "1" or a == "01" or a == "comandos":
-		os.system("bash source/comandos")
-	elif a == "2" or a == "02" or a == "paquetes":
- 		os.system("bash source/librerias")
-	elif a == "3" or a == "03" or a == "herramientas":
-  		os.system("bash source/herramientas")
-	elif a == "4" or a == "04" or a == "tutoriales":
-		os.system("bash source/tutoriales")
-	elif a == "99" or a == "quit" or a == "exit":
-		os.system("echo Hasta luego")	  
-		exit()
-		         
-	elif a == "5" or a == "05" or a == "cursos":
-                os.system("bash source/cursos")
-	elif a == "6" or a == "06" or a == "problemas":
-                os.system("bash source/solucion")
-	elif a == "7" or a == "07" or a == "externos":
-                os.system("bash source/externos")
-	elif a == "8" or a == "08" or a == "otros":
-		os.system("bash source/ing")
-	elif a == "9" or a == "09" or a == "best-tool":
-		os.system("bash source/best-tool")
-	elif a == "10" or a == "best-package":
-		os.system("bash source/best-package")
-
-	elif a == "11":
-                os.system("bash source/scripts")
-		     
-	elif a == "13":
-                os.system("bash source/ptmux")
-
-
-	elif a == "12":
-		os.system("bash source/info")
-
-	else:
-        	print ("\033[1;31m[\033[1;39m !\033[1;31m ]\033[1;39m Opción invalida > ",a)
-        	os.system("sleep 0.5")
-        	os.system("bash wiki")
+    if a == "1" or a == "01" or a == "comandos":
+        os.system(f"bash {lang_path}/comandos")
+    elif a == "2" or a == "02" or a == "paquetes":
+        os.system(f"bash {lang_path}/librerias")
+    elif a == "3" or a == "03" or a == "herramientas":
+        os.system(f"bash {lang_path}/herramientas")
+    elif a == "4" or a == "04" or a == "tutoriales":
+        os.system(f"bash {lang_path}/tutoriales")
+    elif a == "99" or a == "quit" or a == "exit":
+        print(t['exit_message'])
+        exit()
+    elif a == "5" or a == "05" or a == "cursos":
+        os.system(f"bash {lang_path}/cursos")
+    elif a == "6" or a == "06" or a == "problemas":
+        os.system(f"bash {lang_path}/solucion")
+    elif a == "7" or a == "07" or a == "externos":
+        os.system(f"bash {lang_path}/externos")
+    elif a == "8" or a == "08" or a == "otros":
+        os.system(f"bash {lang_path}/ing")
+    elif a == "9" or a == "09" or a == "best-tool":
+        os.system(f"bash {lang_path}/best-tool")
+    elif a == "10" or a == "best-package":
+        os.system(f"bash {lang_path}/best-package")
+    elif a == "11":
+        os.system(f"bash {lang_path}/scripts")
+    elif a == "13":
+        os.system(f"bash {lang_path}/ptmux")
+    elif a == "12":
+        os.system(f"bash {lang_path}/info")
+    else:
+        print(f"\033[1;31m[ \033[1;39m! \033[1;31m] \033[1;39m{t['invalid_option']}", a)
+        os.system("sleep 0.5")
+        os.system("bash wiki") # Reloads the main script
 except KeyboardInterrupt:
-	os.system("sleep 0.5")
-	print("\n Ctrl C Presionado")
-	 
-		        
+    os.system("sleep 0.5")
+    print(t['ctrl_c'])

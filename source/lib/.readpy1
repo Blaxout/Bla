@@ -1,19 +1,39 @@
 import os
 import time
 
+# --- Language Setup ---
+lang = os.getenv('WIKI_LANG', 'es')
+lang_path = f"source/{lang}"
+
+# --- UI Translations ---
+ui_texts = {
+    'es': {
+        "prompt": "			WIKI-PAQUETES > ",
+        "invalid_option": "			[!] Opción invalida > ",
+        "ctrl_c": "\nCtrl c presionado"
+    },
+    'fr': {
+        "prompt": "			WIKI-PAQUETS > ",
+        "invalid_option": "			[!] Option invalide > ",
+        "ctrl_c": "\nCtrl C pressé"
+    }
+}
+t = ui_texts.get(lang, ui_texts['es'])
+
 try:
- b = input("\033[1;31m			WIKI-\033[1;39mPAQUETES > ")
- if b == "1" or b == "01":
-  os.system("bash source/menu/menu_2/.listpaq")
- elif b == "2" or b == "02":
-  os.system("bash source/menu/menu_2/.listinstall")
- elif b == "3" or b == "03":
-  os.system("bash source/menu/menu_2/.listshow")
- elif b == "99":
-  os.system("bash wiki")
- else:
-  print("\033[1;31m			[!]\033[1;39m Opción invalida > ",b)
-  time.sleep(0.5)
-  os.system("bash source/librerias")
+    b = input(f"[1;31m{t['prompt']}[1;39m")
+    
+    if b == "1" or b == "01":
+        os.system(f"bash {lang_path}/menu/menu_2/.listpaq")
+    elif b == "2" or b == "02":
+        os.system(f"bash {lang_path}/menu/menu_2/.listinstall")
+    elif b == "3" or b == "03":
+        os.system(f"bash {lang_path}/menu/menu_2/.listshow")
+    elif b == "99":
+        os.system("bash wiki")
+    else:
+        print(f"[1;31m{t['invalid_option']}[1;39m", b)
+        time.sleep(0.5)
+        os.system(f"bash {lang_path}/librerias")
 except KeyboardInterrupt:
- print("\n\033[1;39mCtrl c presionado")
+    print(f"\n[1;39m{t['ctrl_c']}")

@@ -1,0 +1,16 @@
+figlet figlet
+echo -e "\e[1;39m
+FIGlet est une application informatique qui génère des bannières de texte, dans diverses polices, formées par des lettres composées de conglomérats de caractères ASCII plus petits.
+
+\e[1;32mInstallation:
+\e[1;39m$ pkg install figlet
+
+\e[1;33mUtilisation:
+\e[1;39m$ figlet wikitermux 
+
+\e[1;36mPoids:\e[1;39m 848KB
+\e[1;36mType de programme:\e[1;39m logiciel libre
+\e[1;36mProgrammé en:\e[1;39m C (langage de programmation)
+\e[1;36mÉcrit en: \e[1;39mC
+\e[1;36mPlateforme: \e[1;39mMultiplateforme
+"

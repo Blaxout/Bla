@@ -1,0 +1,20 @@
+clear
+lang_path="source/$WIKI_LANG"
+python "$lang_path/art/banner12"
+bash "$lang_path/.core"
+if [ "$WIKI_LANG" = "fr" ]; then
+    echo -e "
+\e[1;31m [\e[1;39m 1\e[1;31m ]\e[1;39m PC
+\e[1;31m [\e[1;39m 2\e[1;31m ]\e[1;39m Mobile
+
+\e[1;31m [\e[1;39m 99\e[1;31m ]\e[1;39m Retour au menu
+"
+else
+    echo -e "
+\e[1;31m [\e[1;39m 1\e[1;31m ]\e[1;39m PC
+\e[1;31m [\e[1;39m 2\e[1;31m ]\e[1;39m Movil 
+
+\e[1;31m [\e[1;39m 99\e[1;31m ]\e[1;39m Volver al menú
+"
+fi
+python source/lib/.readpy12

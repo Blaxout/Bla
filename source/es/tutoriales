@@ -1,0 +1,5 @@
+#!/bin/bash
+lang_path="source/$WIKI_LANG"
+clear
+python "$lang_path/art/banner4"
+python source/lib/.readpy4

@@ -1,0 +1,12 @@
+clear
+lang_path="source/$WIKI_LANG"
+cat "$lang_path/art/banner8"
+bash "$lang_path/.core"
+echo -e "
+\033[1;31m [\033[1;39m 1\033[1;31m ]\033[1;39m Changer l'icône d'un payload
+\033[1;31m [\033[1;39m 2\033[1;31m ]\033[1;39m Changer le nom d'un payload
+\033[1;31m [\033[1;39m 3\033[1;31m ]\033[1;39m Combinaisons de touches Termux
+
+\033[1;31m [\033[1;39m 99\033[1;31m ]\033[1;39m Retour au menu
+"
+python source/lib/.readpy8

@@ -1,106 +1,88 @@
-read -p $'\e[1;31mWIKI\e[1;39m-ENLACES-EXTERNOS > ' p
+#!/bin/bash
 
-if [[ $p == "1" || $p == "01" ]];then
-python source/menu/menu_7/.ts
-echo -e "\e[1;32mS:\e[1;39mPara dirigirte ala app en playstore"
-echo -e "\e[1;33mA:\e[1;39mPara dirigirte ala app en Aptoide"
-echo -e "\e[1;31mE:\e[1;39mPara salir"
-echo ""
+lang_path="source/$WIKI_LANG"
 
-read -p $'Escribe tu opción:\033[1;32m(s)\e[1;33m(a)\e[1;31m(e)\e[1;39m > ' o
-
-if [[ $o == "S" || $o == "s" ]];then
-        termux-open-url https://play.google.com/store/apps/details?id=com.termux.styling
-	bash wiki
-elif [[ $o == "A" || $o == "a" ]];then
-        termux-open-url https://termux-styling.es.aptoide.com/app
-	bash wiki
+# --- Translated Strings ---
+if [ "$WIKI_LANG" = "fr" ]; then
+    prompt_main="WIKI-LIENS-EXTERNES > "
+    prompt_option="Écrivez votre option:(s)(a)(e) > "
+    option_s="S:Pour aller à l'application sur le Play Store"
+    option_a="A:Pour aller à l'application sur Aptoide"
+    option_e="E:Pour sortir"
+    invalid_option="[!] Option invalide > "
 else
-bash source/externos
+    prompt_main="WIKI-ENLACES-EXTERNOS > "
+    prompt_option="Escribe tu opción:(s)(a)(e) > "
+    option_s="S:Para dirigirte ala app en playstore"
+    option_a="A:Para dirigirte ala app en Aptoide"
+    option_e="E:Para salir"
+    invalid_option="[!] Opción invalida > "
 fi
 
-elif [[ $p == "2" || $p == "02" ]];then
-python source/menu/menu_7/.tt
-echo -e "\e[1;32mS:\e[1;39mPara dirigirte ala app en playstore"
-echo -e "\e[1;33mA:\e[1;39mPara dirigirte ala app en Aptoide"
-echo -e "\e[1;31mE:\e[1;39mPara salir"
-echo ""
+function open_url() {
+    if [[ $1 == "S" || $1 == "s" ]]; then
+        termux-open-url $2
+        bash wiki
+    elif [[ $1 == "A" || $1 == "a" ]]; then
+        termux-open-url $3
+        bash wiki
+    else
+        bash "$lang_path/externos"
+    fi
+}
 
-read -p $'Escribe tu opción:\033[1;32m(s)\e[1;33m(a)\e[1;31m(e)\e[1;39m > ' o
-if [[ $o == "S" || $o == "s" ]];then
-        termux-open-url https://play.google.com/store/apps/details?id=com.termux.tasker
-	bash wiki
-elif [[ $o == "A" || $o == "a" ]];then
-        termux-open-url https://termux-task.es.aptoide.com/app
-	bash wiki
+read -p $'\e[1;31m'"$prompt_main"'\e[1;39m' p
+
+if [[ $p == "1" || $p == "01" ]]; then
+    python "$lang_path/menu/menu_7/.ts"
+    echo -e "\e[1;32m$option_s"
+    echo -e "\e[1;33m$option_a"
+    echo -e "\e[1;31m$option_e"
+    echo ""
+    read -p "$prompt_option" o
+    open_url "$o" "https://play.google.com/store/apps/details?id=com.termux.styling" "https://termux-styling.es.aptoide.com/app"
+
+elif [[ $p == "2" || $p == "02" ]]; then
+    python "$lang_path/menu/menu_7/.tt"
+    echo -e "\e[1;32m$option_s"
+    echo -e "\e[1;33m$option_a"
+    echo -e "\e[1;31m$option_e"
+    echo ""
+    read -p "$prompt_option" o
+    open_url "$o" "https://play.google.com/store/apps/details?id=com.termux.tasker" "https://termux-task.es.aptoide.com/app"
+
+elif [[ $p == "3" || $p == "03" ]]; then
+    # BUG FIX: Changed .pw to .tw as .pw does not exist
+    python "$lang_path/menu/menu_7/.tw"
+    echo -e "\e[1;32m$option_s"
+    echo -e "\e[1;33m$option_a"
+    echo -e "\e[1;31m$option_e"
+    echo ""
+    read -p "$prompt_option" o
+    open_url "$o" "https://play.google.com/store/apps/details?id=com.termux.widget" "https://termux-widget.es.aptoide.com/app"
+
+elif [[ $p == "4" || $p == "04" ]]; then
+    python "$lang_path/menu/menu_7/.tf"
+    echo -e "\e[1;32m$option_s"
+    echo -e "\e[1;33m$option_a"
+    echo -e "\e[1;31m$option_e"
+    echo ""
+    read -p "$prompt_option" o
+    open_url "$o" "https://play.google.com/store/apps/details?id=com.termux.float" "https://termux-float.es.aptoide.com/app"
+
+elif [[ $p == "5" || $p == "05" ]]; then
+    python "$lang_path/menu/menu_7/.tb"
+    echo -e "\e[1;32m$option_s"
+    echo -e "\e[1;33m$option_a"
+    echo -e "\e[1;31m$option_e"
+    echo ""
+    read -p "$prompt_option" o
+    open_url "$o" "https://play.google.com/store/apps/details?id=com.termux.boot" "https://termux-boot.es.aptoide.com/app"
+
+elif [[ $p == "99" || $p == "exit" || $p == "quit" ]]; then
+    bash wiki
 else
-bash source/externos
-fi
-
-
-elif [[ $p == "3" || $p == "03" ]];then
-python source/menu/menu_7/.pw
-echo -e "\e[1;32mS:\e[1;39mPara dirigirte ala app en playstore"
-echo -e "\e[1;33mA:\e[1;39mPara dirigirte ala app en Aptoide"
-echo -e "\e[1;31mE:\e[1;39mPara salir"
-echo ""
-
-read -p $'Escribe tu opción:\033[1;32m(s)\e[1;33m(a)\e[1;31m(e)\e[1;39m > ' o
-if [[ $o == "S" || $o == "s" ]];then
-        termux-open-url https://play.google.com/store/apps/details?id=com.termux.widget
-	bash wiki
-elif [[ $o == "A" || $o == "a" ]];then
-        termux-open-url https://termux-widget.es.aptoide.com/app
-	bash wiki
-else
-bash source/externos
-fi
-
-			      
-elif [[ $p == "4" || $p == "04" ]];then
-python source/menu/menu_7/.tf
-echo -e "\e[1;32mS:\e[1;39mPara dirigirte ala app en playstore"
-echo -e "\e[1;33mA:\e[1;39mPara dirigirte ala app en Aptoide"
-echo -e "\e[1;31mE:\e[1;39mPara salir"
-echo ""
-
-read -p $'Escribe tu opción:\033[1;32m(s)\e[1;33m(a)\e[1;31m(e)\e[1;39m > ' o
-if [[ $o == "S" || $o == "s" ]];then
-        termux-open-url https://play.google.com/store/apps/details?id=com.termux.float
-	bash wiki
-elif [[ $o == "A" || $o == "a" ]];then
-        termux-open-url https://termux-float.es.aptoide.com/app
-	bash wiki
-else
-bash source/externos
-fi
-	        
-elif [[ $p == "5" || $p == "05" ]];then
-python source/menu/menu_7/.tb
-echo -e "\e[1;32mS:\e[1;39mPara dirigirte ala app en playstore"
-echo -e "\e[1;33mA:\e[1;39mPara dirigirte ala app en Aptoide"
-echo -e "\e[1;31mE:\e[1;39mPara salir"
-echo ""
-
-read -p $'Escribe tu opción:\033[1;32m(s)\e[1;33m(a)\e[1;31m(e)\e[1;39m > ' o
-if [[ $o == "S" || $o == "s" ]];then
-        termux-open-url https://play.google.com/store/apps/details?id=com.termux.boot
-	bash wiki
-
-elif [[ $o == "A" || $o == "a" ]];then
-        termux-open-url https://termux-boot.es.aptoide.com/app
-	bash wiki
-
-else
-bash source/externos
-fi
-
-elif [[ $p == "99" || $p == "exit" || $p == "quit" ]];then
-	bash wiki
-else
-echo -e "\e[1;31m[!]\e[1;39m Opción invalida > $p"
-sleep 0.5
-bash source/externos
-						  
-
+    echo -e "\e[1;31m$invalid_option $p"
+    sleep 0.5
+    bash "$lang_path/externos"
 fi

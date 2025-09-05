@@ -1,4 +1,37 @@
-command -v python > /dev/null 2>&1 || { echo >&2 -e "\e[1;32m[*]\e[1;39m Instalando Python..."; pkg install python -y;}
-command -v wget > /dev/null 2>&1 || { echo >&2 -e "\e[1;32m[*]\e[1;39m Instalando Wget..."; pkg install wget -y;}
-python source/art/banner0
+#!/bin/bash
+
+# --- Installation des dépendances ---
+command -v python > /dev/null 2>&1 || { echo >&2 -e "\e[1;32m[*] \e[1;39mInstallation de Python..."; pkg install python -y; }
+command -v wget > /dev/null 2>&1 || { echo >&2 -e "\e[1;32m[*] \e[1;39mInstallation de Wget..."; pkg install wget -y; }
+
+# --- Sélection de la langue ---
+LANG_FILE=".lang"
+
+if [ ! -f "$LANG_FILE" ]; then
+    echo "Please select a language / Por favor seleccione un idioma:"
+    echo ""
+    echo -e "\e[1;32m1. Español\e[0m"
+    echo -e "\e[1;34m2. Français\e[0m"
+    echo ""
+    read -p "> " lang_choice
+
+    case $lang_choice in
+        1)
+            echo "es" > $LANG_FILE
+            echo "Idioma seleccionado: Español"
+            ;;
+        2)
+            echo "fr" > $LANG_FILE
+            echo "Langue sélectionnée : Français"
+            ;;
+        *)
+            echo "Invalid option / Opción inválida"
+            exit 1
+            ;;
+    esac
+fi
+
+# --- Exécution du script principal ---
+export WIKI_LANG=$(cat $LANG_FILE)
+# La bannière est maintenant dépendante de la langue, nous la déplaçons dans le script python
 python source/lib/.readpy

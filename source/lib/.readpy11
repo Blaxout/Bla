@@ -1,411 +1,102 @@
 import os
 import time
 
+lang = os.getenv('WIKI_LANG', 'es')
+lang_path = f"source/{lang}"
+
+# --- UI Translations ---
+ui_texts = {
+    'es': {
+        "main_prompt": "WIKI-SCRIPTS > ",
+        "continue_prompt": "PRESIONA ENTER PARA CONTINUAR...",
+        "script_heading": "Script:",
+        "run_demo": "(P) Probar demo",
+        "back_to_menu": "(E) Volver al menú",
+        "try_it_yourself": "\nDebes probarlo tu mismo\n",
+        "press_ctrl_c": "\n# Presiona ctrl c para terminar\n",
+        "invalid_option": "[! ] Opción invalida > ",
+        "ctrl_c": "\nCtrl c presionado"
+    },
+    'fr': {
+        "main_prompt": "WIKI-SCRIPTS > ",
+        "continue_prompt": "APPUYEZ SUR ENTRÉE POUR CONTINUER...",
+        "script_heading": "Script :",
+        "run_demo": "(P) Tester la démo",
+        "back_to_menu": "(E) Retour au menu",
+        "try_it_yourself": "\nVous devez l'essayer vous-même\n",
+        "press_ctrl_c": "\n# Appuyez sur Ctrl+C pour terminer\n",
+        "invalid_option": "[! ] Option invalide > ",
+        "ctrl_c": "\nCtrl C pressé"
+    }
+}
+t = ui_texts.get(lang, ui_texts['es'])
+
 def f():
- a = input("PRESIONA ENTER PARA CONTINUAR...")
- if a != "₩":
-  os.system("bash source/scripts")
- else:
-  os.system("bash source/scripts")
+    a = input(t["continue_prompt"])
+    os.system(f"bash {lang_path}/scripts")
+
+def show_script(file, prompt_text):
+    print(f"\033[1;33m{t['script_heading']}\033[1;39m\n")
+    os.system(f"cat {lang_path}/menu/menu_11/{file}")
+    print(f"\n\033[1;32m{t['run_demo']}")
+    print(f"\033[1;31m{t['back_to_menu']}\n")
+    return input(f"\033[1;31mSCRIPTS-\\033[1;39m{prompt_text} > ")
+
+def run_demo(file):
+    print("")
+    os.system(f"bash {lang_path}/menu/menu_11/{file}")
+    time.sleep(1)
+    os.system(f"bash {lang_path}/scripts")
+
+def run_interactive_demo(file, message):
+    print(f"\n\033[0;36m{message}\033[1;39m\n")
+    os.system(f"bash {lang_path}/menu/menu_11/{file}")
+    os.system(f"bash {lang_path}/scripts")
 
 try:
- b = input("\033[1;31mWIKI-\033[1;39mSCRIPTS > ")
- if b == "1" or b == "01":
-  print("\033[1;33mScript:\033[1;39m\n")
-  os.system("cat source/menu/menu_11/calcase")
-  print("\n\033[1;32m(P)\033[1;39m Probar demo")
-  print("\033[1;31m(E)\033[1;39m Volver al menú\n")
-  c = input("\033[1;31mSCRIPTS-\033[1;39mCALCULADORA-SIMPLE > ")
-  if c == "p" or c == "P":
-   print("")
-   os.system("bash source/menu/menu_11/calcase")
-   os.system("bash source/scripts")
-  elif c == "e" or c == "E":
-   os.system("bash source/scripts")
-  else:
-   os.system("bash source/scripts")
+    b = input(f"\033[1;31m{t['main_prompt']}\033[1;39m")
+    
+    options = {
+        "1": ("calcase", "CALCULADORA-SIMPLE", lambda: run_demo("calcase")),
+        "2": ("colores", "COLORES", lambda: run_demo("colores")),
+        "3": ("contarlineas", "CONTAR-LINEAS", lambda: (print(t['try_it_yourself']), f())),
+        "4": ("copiarcontenido", "COPIAR-CONTENIDO", lambda: (print(t['try_it_yourself']), f())),
+        "5": ("ctrpress", "CTRL-C", lambda: run_interactive_demo("ctrpress", t['press_ctrl_c'])),
+        "6": ("division", "DIVISION", lambda: run_demo("division")),
+        "7": ("hellwo", "HELLO-WORLD", lambda: run_demo("hellwo")),
+        "8": ("menu", "MENU-IF", lambda: run_demo("menu")),
+        "9": ("menuca", "MENU-CASE", lambda: (os.system(f"bash {lang_path}/menu/menu_11/menuca"), os.system(f"bash {lang_path}/scripts"))),
+        "10": ("menufu", "MENU-FUNCIONES", lambda: (os.system(f"bash {lang_path}/menu/menu_11/menufu"), os.system(f"bash {lang_path}/scripts"))),
+        "11": ("whilemenu", "WHILE-MENU", lambda: (os.system(f"bash {lang_path}/menu/menu_11/whilemenu"), os.system(f"bash {lang_path}/scripts"))),
+        "12": ("interactiv", "MENU-INTERACTIVO", lambda: run_demo("interactiv")),
+        "13": ("multi", "MULTIPLICACION", lambda: run_demo("multi")),
+        "14": ("obtemperatura", "OBTENER-TEMPERATURA", lambda: run_demo("obtemperatura")),
+        "15": ("parinpar", "PAR-INPAR", lambda: run_demo("parinpar")),
+        "16": ("pesodirectorio", "PESO-DIRECTORIO", lambda: (print(t['try_it_yourself']), f())),
+        "17": ("resta", "RESTA", lambda: run_demo("resta")),
+        "18": ("rndemoji", "RANDOM-EMOJI", lambda: run_interactive_demo("rndemoji", t['press_ctrl_c'])) ,
+        "19": ("spinner", "ANIMACION", lambda: run_interactive_demo("spinner", t['press_ctrl_c'])) ,
+        "20": ("suma", "SUMA", lambda: run_demo("suma")),
+        "21": ("tabla", "TABLA", lambda: run_demo("tabla")),
+        "22": ("textolowercase", "TEXTO-MINUSCULAS", lambda: run_demo("textolowercase")),
+        "23": ("dire", "DIRECTORIO", lambda: run_demo("dire")),
+        "24": ("filee", "ARCHIVO", lambda: run_demo("filee")),
+        "25": ("whileopp", "WHILE-LOOP", lambda: (os.system(f"bash {lang_path}/menu/menu_11/whileopp"), os.system(f"bash {lang_path}/scripts")))
+    }
 
- elif b == "2" or b == "02":
-  print("\033[1;33mScript:\033[1;39m\n")
-  os.system("cat source/menu/menu_11/colores")
-  print("\n\033[1;32m(P)\033[1;39m Probar demo")
-  print("\033[1;31m(E)\033[1;39m Volver al menú\n")
-  c = input("\033[1;31mSCRIPTS-\033[1;39mCOLORES > ")
-  if c == "p" or c == "P":
-   print("")
-   os.system("bash source/menu/menu_11/colores")
-   os.system("bash source/scripts")
-  elif c == "e" or c == "E":
-   os.system("bash source/scripts")
-  else:
-   os.system("bash source/scripts")
-	     
- elif b == "3" or b == "03":
-  print("\033[1;33mScript:\033[1;39m\n")
-  os.system("cat source/menu/menu_11/contarlineas")
-  print("\n\033[1;32m(P)\033[1;39m Probar demo")
-  print("\033[1;31m(E)\033[1;39m Volver al menú\n")
-  c = input("\033[1;31mSCRIPTS-\033[1;39mCONTAR-LINEAS > ")
-  if c == "p" or c == "P":
-   print("\nDebes probarlo tu mismo\n")
-   f()
-  elif c == "e" or c == "E":
-   os.system("bash source/scripts")
-  else:
-   os.system("bash source/scripts")
-
- elif b == "4" or b == "04":
-  print("\033[1;33mScript:\033[1;39m\n")
-  os.system("cat source/menu/menu_11/copiarcontenido")
-  print("\n\033[1;32m(P)\033[1;39m Probar demo")
-  print("\033[1;31m(E)\033[1;39m Volver al menú\n")
-  c = input("\033[1;31mSCRIPTS-\033[1;39mCOPIAR-CONTENIDO > ")
-  if c == "p" or c == "P":
-   print("\nDebes probarlo tu mismo\n")
-   f()
-  elif c == "e" or c == "E":
-   os.system("bash source/scripts")
-  else:
-   os.system("bash source/scripts")
-
- elif b == "5" or b == "05":
-  print("\033[1;33mScript:\033[1;39m\n")
-  os.system("cat source/menu/menu_11/ctrpress")
-  print("\n\033[1;32m(P)\033[1;39m Probar demo")
-  print("\033[1;31m(E)\033[1;39m Volver al menú\n")
-  c = input("\033[1;31mSCRIPTS-\033[1;39mCTRL-C > ")
-  if c == "p" or c == "P":
-   print("\n\033[0;36m# Presiona ctrl c\033[1;39m\n")
-   os.system("bash source/menu/menu_11/ctrpress")
-   os.system("bash source/scripts")
-  elif c == "e" or c == "E":
-   os.system("bash source/scripts")
-  else:
-   os.system("bash source/scripts")
-
- elif b == "6" or b == "06":
-  print("\033[1;33mScript:\033[1;39m\n")
-  os.system("cat source/menu/menu_11/division")
-  print("\n\033[1;32m(P)\033[1;39m Probar demo")
-  print("\033[1;31m(E)\033[1;39m Volver al menú\n")
-  c = input("\033[1;31mSCRIPTS-\033[1;39mDIVISION > ")
-  if c == "p" or c == "P":
-   print("")
-   os.system("bash source/menu/menu_11/division")
-   time.sleep(1.5)
-   os.system("bash source/scripts")
-  elif c == "e" or c == "E":
-   os.system("bash source/scripts")
-  else:
-   os.system("bash source/scripts")
-
-
- elif b == "7" or b == "07":
-  print("\033[1;33mScript:\033[1;39m\n")
-  os.system("cat source/menu/menu_11/hellwo")
-  print("\n\033[1;32m(P)\033[1;39m Probar demo")
-  print("\033[1;31m(E)\033[1;39m Volver al menú\n")
-  c = input("\033[1;31mSCRIPTS-\033[1;39mHELLO-WORLD > ")
-  if c == "p" or c == "P":
-   print("")
-   os.system("bash source/menu/menu_11/hellwo")
-   time.sleep(1)
-   os.system("bash source/scripts")
-  elif c == "e" or c == "E":
-   os.system("bash source/scripts")
-  else:
-   os.system("bash source/scripts")
-
- elif b == "8" or b == "08":
-  print("\033[1;33mScript:\033[1;39m\n")
-  os.system("cat source/menu/menu_11/menu")
-  print("\n\033[1;32m(P)\033[1;39m Probar demo")
-  print("\033[1;31m(E)\033[1;39m Volver al menú\n")
-  c = input("\033[1;31mSCRIPTS-\033[1;39mMENU-IF > ")
-  if c == "p" or c == "P":
-   print("")
-   os.system("bash source/menu/menu_11/menu")
-   time.sleep(1)
-   os.system("bash source/scripts")
-  elif c == "e" or c == "E":
-   os.system("bash source/scripts")
-  else:
-   os.system("bash source/scripts")
-
- elif b == "9" or b == "09":
-  print("\033[1;33mScript:\033[1;39m\n")
-  os.system("cat source/menu/menu_11/menuca")
-  print("\n\033[1;32m(P)\033[1;39m Probar demo")
-  print("\033[1;31m(E)\033[1;39m Volver al menú\n")
-  c = input("\033[1;31mSCRIPTS-\033[1;39mMENU-CASE > ")
-  if c == "p" or c == "P":
-   print("")
-   os.system("bash source/menu/menu_11/menuca")
-   os.system("bash source/scripts")
-  elif c == "e" or c == "E":
-   os.system("bash source/scripts")
-  else:
-   os.system("bash source/scripts")
-
- elif b == "10":
-  print("\033[1;33mScript:\033[1;39m\n")
-  os.system("cat source/menu/menu_11/menufu")
-  print("\n\033[1;32m(P)\033[1;39m Probar demo")
-  print("\033[1;31m(E)\033[1;39m Volver al menú\n")
-  c = input("\033[1;31mSCRIPTS-\033[1;39mMENU-FUNCIONES > ")
-  if c == "p" or c == "P":
-   print("")
-   os.system("bash source/menu/menu_11/menufu")
-   os.system("bash source/scripts")
-  elif c == "e" or c == "E":
-   os.system("bash source/scripts")
-  else:
-   os.system("bash source/scripts")
-
-
- elif b == "11":
-  print("\033[1;33mScript:\033[1;39m\n")
-  os.system("cat source/menu/menu_11/whilemenu")
-  print("\n\033[1;32m(P)\033[1;39m Probar demo")
-  print("\033[1;31m(E)\033[1;39m Volver al menú\n")
-  c = input("\033[1;31mSCRIPTS-\033[1;39mWHILE-MENU > ")
-  if c == "p" or c == "P":
-   print("")
-   os.system("bash source/menu/menu_11/whilemenu")
-   os.system("bash source/scripts")
-  elif c == "e" or c == "E":
-   os.system("bash source/scripts")
-  else:
-   os.system("bash source/scripts")
-
- elif b == "12":
-  print("\033[1;33mScript:\033[1;39m\n")
-  os.system("cat source/menu/menu_11/interactiv")
-  print("\n\033[1;32m(P)\033[1;39m Probar demo")
-  print("\033[1;31m(E)\033[1;39m Volver al menú\n")
-  c = input("\033[1;31mSCRIPTS-\033[1;39mMENU-INTERACTIVO > ")
-  if c == "p" or c == "P":
-   print("")
-   os.system("bash source/menu/menu_11/interactiv")
-   time.sleep(1)
-   os.system("bash source/scripts")
-  elif c == "e" or c == "E":
-   os.system("bash source/scripts")
-  else:
-   os.system("bash source/scripts")
-
- elif b == "13":
-  print("\033[1;33mScript:\033[1;39m\n")
-  os.system("cat source/menu/menu_11/multi")
-  print("\n\033[1;32m(P)\033[1;39m Probar demo")
-  print("\033[1;31m(E)\033[1;39m Volver al menú\n")
-  c = input("\033[1;31mSCRIPTS-\033[1;39mMULTIPLICACION > ")
-  if c == "p" or c == "P":
-   print("")
-   os.system("bash source/menu/menu_11/multi")
-   time.sleep(1)
-   os.system("bash source/scripts")
-  elif c == "e" or c == "E":
-   os.system("bash source/scripts")
-  else:
-   os.system("bash source/scripts")
-
- elif b == "14":
-  print("\033[1;33mScript:\033[1;39m\n")
-  os.system("cat source/menu/menu_11/obtemperatura")
-  print("\n\033[1;32m(P)\033[1;39m Probar demo")
-  print("\033[1;31m(E)\033[1;39m Volver al menú\n")
-  c = input("\033[1;31mSCRIPTS-\033[1;39mOBTENER-TEMPERATURA > ")
-  if c == "p" or c == "P":
-   print("")
-   os.system("bash source/menu/menu_11/obtemperatura")
-   time.sleep(1)
-   os.system("bash source/scripts")
-  elif c == "e" or c == "E":
-   os.system("bash source/scripts")
-  else:
-   os.system("bash source/scripts")
-
- elif b == "15":
-  print("\033[1;33mScript:\033[1;39m\n")
-  os.system("cat source/menu/menu_11/parinpar")
-  print("\n\033[1;32m(P)\033[1;39m Probar demo")
-  print("\033[1;31m(E)\033[1;39m Volver al menú\n")
-  c = input("\033[1;31mSCRIPTS-\033[1;39mPAR-INPAR > ")
-  if c == "p" or c == "P":
-   print("")
-   os.system("bash source/menu/menu_11/parinpar")
-   time.sleep(1)
-   os.system("bash source/scripts")
-  elif c == "e" or c == "E":
-   os.system("bash source/scripts")
-  else:
-   os.system("bash source/scripts")
-
- elif b == "16":
-  print("\033[1;33mScript:\033[1;39m\n")
-  os.system("cat source/menu/menu_11/pesodirectorio")
-  print("\n\033[1;32m(P)\033[1;39m Probar demo")
-  print("\033[1;31m(E)\033[1;39m Volver al menú\n")
-  c = input("\033[1;31mSCRIPTS-\033[1;39mPESO-DIRECTORIO > ")
-  if c == "p" or c == "P":
-   print("\nDebes probarlo tu mismo\n")
-   f()
-  elif c == "e" or c == "E":
-   os.system("bash source/scripts")
-  else:
-   os.system("bash source/scripts")
-
- elif b == "17":
-  print("\033[1;33mScript:\033[1;39m\n")
-  os.system("cat source/menu/menu_11/resta")
-  print("\n\033[1;32m(P)\033[1;39m Probar demo")
-  print("\033[1;31m(E)\033[1;39m Volver al menú\n")
-  c = input("\033[1;31mSCRIPTS-\033[1;39mRESTA > ")
-  if c == "p" or c == "P":
-   print("")
-   os.system("bash source/menu/menu_11/resta")
-   time.sleep(1)
-   os.system("bash source/scripts")
-  elif c == "e" or c == "E":
-   os.system("bash source/scripts")
-  else:
-   os.system("bash source/scripts")
- 
- elif b == "18":
-  print("\033[1;33mScript:\033[1;39m\n")
-  os.system("cat source/menu/menu_11/rndemoji")
-  print("\n\033[1;32m(P)\033[1;39m Probar demo")
-  print("\033[1;31m(E)\033[1;39m Volver al menú\n")
-  c = input("\033[1;31mSCRIPTS-\033[1;39mRANDOM-EMOJI > ")
-  if c == "p" or c == "P":
-   print("\n\033[0;36m# Presiona ctrl c para terminar\033[1;39m\n")
-   os.system("bash source/menu/menu_11/rndemoji")
-   os.system("bash source/scripts")
-  elif c == "e" or c == "E":
-   os.system("bash source/scripts")
-  else:
-   os.system("bash source/scripts")
-
- elif b == "19":
-  print("\033[1;33mScript:\033[1;39m\n")
-  os.system("cat source/menu/menu_11/spinner")
-  print("\n\033[1;32m(P)\033[1;39m Probar demo")
-  print("\033[1;31m(E)\033[1;39m Volver al menú\n")
-  c = input("\033[1;31mSCRIPTS-\033[1;39mANIMACION > ")
-  if c == "p" or c == "P":
-   print("\n\033[0;36m# Presiona ctrl c para terminar\033[1;39m\n")
-   os.system("bash source/menu/menu_11/spinner")
-   os.system("bash source/scripts")
-  elif c == "e" or c == "E":
-   os.system("bash source/scripts")
-  else:
-   os.system("bash source/scripts")
-
-	     
- elif b == "20":
-  print("\033[1;33mScript:\033[1;39m\n")
-  os.system("cat source/menu/menu_11/suma")
-  print("\n\033[1;32m(P)\033[1;39m Probar demo")
-  print("\033[1;31m(E)\033[1;39m Volver al menú\n")
-  c = input("\033[1;31mSCRIPTS-\033[1;39mSUMA > ")
-  if c == "p" or c == "P":
-   print("")
-   os.system("bash source/menu/menu_11/suma")
-   time.sleep(1)
-   os.system("bash source/scripts")
-  elif c == "e" or c == "E":
-   os.system("bash source/scripts")
-  else:
-   os.system("bash source/scripts")
-
- elif b == "21":
-  print("\033[1;33mScript:\033[1;39m\n")
-  os.system("cat source/menu/menu_11/tabla")
-  print("\n\033[1;32m(P)\033[1;39m Probar demo")
-  print("\033[1;31m(E)\033[1;39m Volver al menú\n")
-  c = input("\033[1;31mSCRIPTS-\033[1;39mTABLA > ")
-  if c == "p" or c == "P":
-   print("")
-   os.system("bash source/menu/menu_11/tabla")
-   time.sleep(1)
-   os.system("bash source/scripts")
-  elif c == "e" or c == "E":
-   os.system("bash source/scripts")
-  else:
-   os.system("bash source/scripts")
-
- elif b == "22":
-  print("\033[1;33mScript:\033[1;39m\n")
-  os.system("cat source/menu/menu_11/textolowercase")
-  print("\n\033[1;32m(P)\033[1;39m Probar demo")
-  print("\033[1;31m(E)\033[1;39m Volver al menú\n")
-  c = input("\033[1;31mSCRIPTS-\033[1;39mTEXTO-MINUSCULAS > ")
-  if c == "p" or c == "P":
-   print("")
-   os.system("bash source/menu/menu_11/textolowercase")
-   time.sleep(1)
-   os.system("bash source/scripts")
-  elif c == "e" or c == "E":
-   os.system("bash source/scripts")
-  else:
-   os.system("bash source/scripts")
-
- elif b == "23":
-  print("\033[1;33mScript:\033[1;39m\n")
-  os.system("cat source/menu/menu_11/dire")
-  print("\n\033[1;32m(P)\033[1;39m Probar demo")
-  print("\033[1;31m(E)\033[1;39m Volver al menú\n")
-  c = input("\033[1;31mSCRIPTS-\033[1;39mDIRECTORIO > ")
-  if c == "p" or c == "P":
-   print("")
-   os.system("bash source/menu/menu_11/dire")
-   time.sleep(0.5)
-   os.system("bash source/scripts")
-  elif c == "e" or c == "E":
-   os.system("bash source/scripts")
-  else:
-   os.system("bash source/scripts")
-
-
- elif b == "24":
-  print("\033[1;33mScript:\033[1;39m\n")
-  os.system("cat source/menu/menu_11/filee")
-  print("\n\033[1;32m(P)\033[1;39m Probar demo")
-  print("\033[1;31m(E)\033[1;39m Volver al menú\n")
-  c = input("\033[1;31mSCRIPTS-\033[1;39mARCHIVO > ")
-  if c == "p" or c == "P":
-   print("")
-   os.system("bash source/menu/menu_11/filee")
-   time.sleep(1)
-   os.system("bash source/scripts")
-  elif c == "e" or c == "E":
-   os.system("bash source/scripts")
-  else:
-   os.system("bash source/scripts")
-
- elif b == "25":
-  print("\033[1;33mScript:\033[1;39m\n")
-  os.system("cat source/menu/menu_11/whileopp")
-  print("\n\033[1;32m(P)\033[1;39m Probar demo")
-  print("\033[1;31m(E)\033[1;39m Volver al menú\n")
-  c = input("\033[1;31mSCRIPTS-\033[1;39mWHILE-LOOP > ")
-  if c == "p" or c == "P":
-   print("")
-   os.system("bash source/menu/menu_11/whileopp")
-   os.system("bash source/scripts")
-  elif c == "e" or c == "E":
-   os.system("bash source/scripts")
-  else:
-   os.system("bash source/scripts")
-
- elif b == "99":
-  os.system("bash wiki")
-
- else:
-  print("\033[1;31m[!]\033[1;39m Opción invalida > ",b)
-  time.sleep(0.5)
-  os.system("bash source/scripts")
+    if b in options:
+        file, prompt, action = options[b]
+        c = show_script(file, prompt)
+        if c.lower() == 'p':
+            action()
+        else:
+            os.system(f"bash {lang_path}/scripts")
+    elif b == "99":
+        os.system("bash wiki")
+    else:
+        print(f"\033[1;31m{t['invalid_option']}\033[1;39m", b)
+        time.sleep(0.5)
+        os.system(f"bash {lang_path}/scripts")
 
 except KeyboardInterrupt:
- print("\033[1;39m\nCtrl c presionado")
+    print(f"\n{t['ctrl_c']}")

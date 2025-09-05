@@ -1,0 +1,14 @@
+figlet w3m
+echo -e "\e[1;39m
+W3m est un navigateur web en mode texte ainsi qu'un paginateur. Il ressemble beaucoup à Lynx et prend en charge les tableaux, les cadres, les connexions SSL, la couleur de fond et même les images. En général, il restitue les pages aussi fidèlement que possible. Il est également possible de l'utiliser à l'intérieur d'emacs.
+
+\e[1;32mInstallation:
+\e[1;39m$ pkg install w3m
+
+\e[1;33mUtilisation:
+\e[1;39m$ w3m --help
+
+\e[1;36mPoids:\e[1;39m 1348KB
+\e[1;36mÉcrit en: \e[1;39mC
+\e[1;36mDéveloppeur: \e[1;39mAkinori Ito and team members
+"

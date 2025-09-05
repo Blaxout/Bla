@@ -1,0 +1,15 @@
+cat source/fr/menu/menu_12/ui
+echo -e "
+\e[1;39mUnix est un système d'exploitation portable, multitâche et multi-utilisateur ; développé en 1969 par un groupe d'employés des laboratoires Bell d'AT&T. Le système, ainsi que tous les droits, ont été vendus par AT&T à Novell, Inc.
+				      
+\e[1;36mDate de lancement initiale:\e[1;39m 3 novembre 1971
+\e[1;36mDernière version stable:\e[1;39m Unix V7
+\e[1;36mType de noyau:\e[1;36m Monolithique
+\e[1;36mType de marché:\e[1;39m Serveurs
+\e[1;36mÉcrit en:\e[1;39m C, Langage assembleur
+\e[1;36mPrix:\e[1;39m Prix Turing
+
+\033[1;33mInstallation:
+
+\033[1;39mhttp://www.ordenador.online/Sistemas/unix/C%C3%B3mo-instalar-Unix-en-Mi-PC-.html
+"

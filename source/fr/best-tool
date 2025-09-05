@@ -1,0 +1,30 @@
+clear
+lang_path="source/$WIKI_LANG"
+cat "$lang_path/art/banner09"
+bash "$lang_path/.core"
+if [ "$WIKI_LANG" = "fr" ]; then
+    echo -e "
+\033[1;31m[\033[1;39m 1\033[1;31m ]\033[1;39m Générateur D'informations
+\033[1;31m[\033[1;39m 2\033[1;31m ]\033[1;39m Exploitation
+\033[1;31m[\033[1;39m 3\033[1;31m ]\033[1;39m Vulnérabilités
+\033[1;31m[\033[1;39m 4\033[1;31m ]\033[1;39m Exploitation Web
+\033[1;31m[\033[1;39m 5\033[1;31m ]\033[1;39m Attaques de mot de passe
+\033[1;31m[\033[1;39m 6\033[1;31m ]\033[1;39m Meilleur-Phishing
+\033[1;31m[\033[1;39m 7\033[1;31m ]\033[1;39m Autres
+
+\033[1;31m[\033[1;39m 99\033[1;31m ]\033[1;39m Retour au menu
+"
+else
+    echo -e "
+\033[1;31m[\033[1;39m 1\033[1;31m ]\033[1;39m Generador De Información
+\033[1;31m[\033[1;39m 2\033[1;31m ]\033[1;39m Explotación
+\033[1;31m[\033[1;39m 3\033[1;31m ]\033[1;39m Vulnerabilidades
+\033[1;31m[\033[1;39m 4\033[1;31m ]\033[1;39m Web Explotación
+\033[1;31m[\033[1;39m 5\033[1;31m ]\033[1;39m Password Atacks
+\033[1;31m[\033[1;39m 6\033[1;31m ]\033[1;39m Best-Phishing
+\033[1;31m[\033[1;39m 7\033[1;31m ]\033[1;39m Otros
+
+\033[1;31m[\033[1;39m 99\033[1;31m ]\033[1;39m Volver al menú
+"
+fi
+python source/lib/.readpy9

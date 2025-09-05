@@ -1,0 +1,17 @@
+figlet nmap
+
+echo -e "
+\033[1;39mNmap est un programme open source utilisé pour l'exploration de réseaux et l'audit de sécurité, écrit à l'origine par Gordon Lyon et dont le développement est aujourd'hui assuré par une communauté. Il a été créé à l'origine pour Linux mais est maintenant multiplateforme.
+
+\033[1;32mInstallation:
+\033[1;39m
+$ pkg install nmap -y
+
+\033[1;33mUtilisation:
+\033[1;39m
+$ nmap
+
+\033[1;36mProgrammé en:\033[1;39m C++; Python; C; Lua; Java
+
+\033[1;36mPoids:\033[1;39m 27.3MB
+"

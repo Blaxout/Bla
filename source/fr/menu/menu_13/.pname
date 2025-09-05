@@ -1,0 +1,45 @@
+import os
+os.system("figlet Wiki-Termux")
+print("""
+[1;32mExemple:[1;39m de ce à quoi cela ressemblera.[1;36m ^^^^ 
+
+[1;33mQu'utiliserons-nous?
+[1;39m
+Figlet est une application informatique qui génère des bannières de texte, dans diverses polices, formées par des lettres composées de conglomérats de caractères ASCII plus petits.
+[1;32m
+PAQUETS NÉCESSAIRES:
+[1;39m
+pkg install figlet -y
+
+pkg install nano -y
+[1;36m
+LISTE DES COULEURS:
+[1;39m
+""" 
+os.system(f"cat {os.getenv('WIKI_LANG', 'fr')}/menu/menu_13/.colores") 
+print(""" 
+[1;32m
+
+PROCÉDURE:
+[1;36m
+Nous entrons dans le dossier etc, pour éditer le fichier bash.bashrc:
+[1;39m
+cd /data/data/com.termux/files/usr/etc
+[1;36m
+Ici, nous supprimerons le fichier motd:
+[1;39m
+rm motd
+[1;36m
+Nous ouvrons le fichier bash.bashrc:
+[1;39m
+nano bash.bashrc
+[1;32m
+Ici, nous chercherons une variable appelée PS1, une fois localisée, nous écrirons ce qui suit ci-dessous:
+[1;39m""" 
+os.system(f"cat {os.getenv('WIKI_LANG', 'fr')}/menu/menu_13/.ar")
+print(""" 
+[1;33mUne fois cela fait, nous enregistrerons le fichier avec CTRL+x puis y
+
+Bien, nous ouvrons une nouvelle fenêtre et voilà, nous aurons personnalisé notre termux
+[1;39m
+""")

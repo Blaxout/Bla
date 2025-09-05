@@ -1,0 +1,42 @@
+print(""" 
+:`  .
+                                       -s- -o.
+                                       -do./d+`
+                           .`-+:-`:o:` -hd+/dh:
+                       .+++++mmmdhNmdy++dmhshds-
+                    ..-oNNNNNNNNNNNNNNmmmmmdmdds-
+                  +hdmmNNNNNNNmmmmmNNNmmmmmmdddds:`
+                -+mNNNNNdy+::-----:+shmmmmmddddddy:
+               .sdNNNNNd+-           `-ohmmmddddhddo`
+              `:dNNNNh-..               .+hdddddhshms.
+             `:dmmNNN:..                  .sddddddhmmy-
+             .osmNmNm-..                    :sdddddmmmo'
+             `:NNNNNs..\033[1;33m       Net-Hunter  \033[1;39m     ./ydddmmh-`
+               sdmNNNNs-                         -odmmmms-
+              `-.:mNNNNd+.                         .ommmmmh-
+                 `ydhmNNNds:.                       +mmmmh.
+                   .`:odmNNNds/.`                    -mmh+``
+                       `.-+ydmNNmds+-`                -:.`
+                         ``-/oydmNNmyo-
+                                `.:oymmmh+.
+                                    `-ohmmo.
+                                         .odd:
+                                           `od:
+                                             /d`
+                                              y.
+                                             .`
+
+							
+\033[1;39mKali NetHunter est une plateforme de test de pénétration mobile gratuite et open source pour les appareils Android, basée sur Kali Linux. [1] Kali NetHunter est disponible pour les appareils non rootés (NetHunter Rootless), [2] pour les appareils rootés qui ont une récupération personnalisée (NetHunter Lite)
+			     
+\033[1;36mSystèmes d'exploitation:\033[1;39m Android, Kali Linux
+\033[1;36mVersions stables:\033[1;39m 2020.1
+\033[1;36mVersions préliminaires: \033[1;39m2020.2-pre3 / 1er avril 2020; il y a 41 jours
+\033[1;36mDéveloppeur:\033[1;39m Offensive Security
+\033[1;36mPlateforme:\033[1;39m Architecture ARM
+\033[1;36mLangages de programmation:\033[1;39m C, Python, Java, Kotlin
+
+\033[1;33mInstallation:
+
+\033[1;39m\033[1;39mhttps://www.kali.org/kali-linux-nethunter/
+""")

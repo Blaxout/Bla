@@ -1,0 +1,13 @@
+figlet BusyBox
+echo -e "\e[1;39m
+BusyBox est une suite logicielle qui fournit plusieurs utilitaires Unix dans un seul fichier exécutable. Il fonctionne dans une variété d'environnements POSIX comme Linux, Android et FreeBSD, bien que beaucoup des outils qu'il fournit soient conçus pour fonctionner avec des interfaces fournies par le noyau Linux.
+
+\e[1;32mInstallation:
+\e[1;39m$ pkg install busybox
+
+\e[1;33mUtilisation:
+\e[1;39m$ busybox
+
+\e[1;36mPoids:\e[1;39m 762KB
+\e[1;36mÉcrit en:\e[1;39m C
+"

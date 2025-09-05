@@ -1,0 +1,17 @@
+print('''
+
+\033[1;33mQu'est-ce que Termux:Boot?
+
+\033[1;39mCe module complémentaire exécutera des scripts immédiatement après le démarrage de l'appareil.
+
+\033[1;33mTéléchargements:
+
+\033[1;32mPlay Store:\033[1;39m https://play.google.com/store/apps/details?id=com.termux.boot
+
+\033[1;36mPrix:\033[1;39m $1.99
+
+\033[1;33mAptoide( gratuit )
+
+\033[1;39mhttps://termux-boot.es.aptoide.com/app
+
+''')

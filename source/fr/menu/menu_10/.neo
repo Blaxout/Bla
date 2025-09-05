@@ -1,0 +1,14 @@
+figlet neofetch
+echo -e "\e[1;39m
+Neofetch est un programme qui permet de voir dans le terminal les informations de base du matériel et des logiciels installés. Il fonctionne avec Linux, Windows, iOS, OS X et BSD.
+
+\e[1;32mInstallation:
+\e[1;39m$ pkg install neofetch
+
+\e[1;33mUtilisation:
+\e[1;39m$ neofetch
+
+\e[1;39mPoids:\e[1;39m 348KB
+\e[1;36mÉcrit en:\e[1;39m bash
+
+"

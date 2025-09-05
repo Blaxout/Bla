@@ -1,272 +1,227 @@
 import os
 import time
 
+# --- Language Setup ---
+lang = os.getenv('WIKI_LANG', 'es')
+lang_path = f"source/{lang}"
+
+# --- UI Translations ---
+ui_texts = {
+    'es': {
+        "main_prompt": "\tWIKI-CURSOS > ",
+        "invalid_option": "[!] Opción invalida > ",
+        "back_to_menu": "Volver al menú",
+        "python_prompt": "CURSO-PYTHON > ",
+        "python_basic": "Curso python basico",
+        "python_advanced": "Curso python avanzado",
+        "bash_prompt": "CURSO-BASH > ",
+        "bash_1": "Curso bash 1",
+        "bash_2": "Curso bash 2",
+        "bash_3": "Curso bash 3",
+        "c_prompt": "CURSO-C > ",
+        "c_basic_1": "Curso C basico 1",
+        "c_basic_2": "Curso C basico 2",
+        "c_advanced": "Curso C avanzado",
+        "html_prompt": "CURSO-HTML > ",
+        "html_full": "Curso html completo",
+        "html_css_js": "Curso html, css, js",
+        "css_prompt": "CURSO-CSS > ",
+        "css_basic": "Curso css basico",
+        "css_advanced": "Curso css avanzado",
+        "js_prompt": "CURSO-JAVASCRIPT > ",
+        "js_basic": "Curso javascript basico",
+        "js_css_js": "Curso css3, javascript",
+        "hacking_title": "Curso Hacking",
+        "cpp_prompt": "CURSO-C++ > ",
+        "cpp_basic_1": "Curso c++ basico 1",
+        "cpp_basic_2": "Curso c++ basico 2",
+        "cpp_advanced": "Curso c++ avanzado",
+        "java_prompt": "CURSO-JAVA > ",
+        "java_basic": "Curso java basico",
+        "java_advanced": "Curso java avanzado",
+        "sql_prompt": "CURSO-SQL > ",
+        "sql_basic": "Curso sql basico",
+        "sql_advanced": "Curso sql avanzado",
+        "ctrl_c": "\nCtrl c presionado"
+    },
+    'fr': {
+        "main_prompt": "\tWIKI-COURS > ",
+        "invalid_option": "[!] Option invalide > ",
+        "back_to_menu": "Retour au menu",
+        "python_prompt": "COURS-PYTHON > ",
+        "python_basic": "Cours python basique",
+        "python_advanced": "Cours python avancé",
+        "bash_prompt": "COURS-BASH > ",
+        "bash_1": "Cours bash 1",
+        "bash_2": "Cours bash 2",
+        "bash_3": "Cours bash 3",
+        "c_prompt": "COURS-C > ",
+        "c_basic_1": "Cours C basique 1",
+        "c_basic_2": "Cours C basique 2",
+        "c_advanced": "Cours C avancé",
+        "html_prompt": "COURS-HTML > ",
+        "html_full": "Cours html complet",
+        "html_css_js": "Cours html, css, js",
+        "css_prompt": "COURS-CSS > ",
+        "css_basic": "Cours css basique",
+        "css_advanced": "Cours css avancé",
+        "js_prompt": "COURS-JAVASCRIPT > ",
+        "js_basic": "Cours javascript basique",
+        "js_css_js": "Cours css3, javascript",
+        "hacking_title": "Cours Hacking",
+        "cpp_prompt": "COURS-C++ > ",
+        "cpp_basic_1": "Cours c++ basique 1",
+        "cpp_basic_2": "Cours c++ basique 2",
+        "cpp_advanced": "Cours c++ avancé",
+        "java_prompt": "COURS-JAVA > ",
+        "java_basic": "Cours java basique",
+        "java_advanced": "Cours java avancé",
+        "sql_prompt": "COURS-SQL > ",
+        "sql_basic": "Cours sql basique",
+        "sql_advanced": "Cours sql avancé",
+        "ctrl_c": "\nCtrl C pressé"
+    }
+}
+t = ui_texts.get(lang, ui_texts['es'])
+
+def run_course(path):
+    print("")
+    os.system(f"bash {lang_path}/menu/menu_5/{path}")
+    time.sleep(1)
+    os.system(f"bash {lang_path}/cursos")
+
+def invalid_option(var):
+    print(f"\033[1;31m{t['invalid_option']}\033[1;39m", var)
+    time.sleep(1)
+    os.system(f"bash {lang_path}/cursos")
+
 try:
- a = input("\033[1;31m	WIKI-\033[1;39mCURSOS > ")
- if a == "1" or a == "01":
-  os.system("python source/art/b7")
-  print("\n\033[1;31m[\033[1;39m 1\033[1;31m ]\033[1;39m Curso python basico")
-  print("\033[1;31m[\033[1;39m 2\033[1;31m ]\033[1;39m Curso python avanzado\n")
-  print("\033[1;31m[\033[1;39m 99\033[1;31m ]\033[1;39m Volver al menú\n")
-  b = input("\033[1;31mCURSO-\033[1;39mPYTHON > ")
-  if b == "1" or b == "01":
-   print("")
-   os.system("bash source/menu/menu_5/python.basic")
-   time.sleep(1)
-   os.system("bash source/cursos")
-  elif b == "2" or b == "02":
-   print("")
-   os.system("bash source/menu/menu_5/python.dev")
-   time.sleep(1)
-   os.system("bash source/cursos")
-  elif b == "99":
-   os.system("bash source/cursos")
-  else:
-   print("\033[1;31m[!]\033[1;39m Opción invalida > ",b)
-   time.sleep(0.5)
-   os.system("bash source/cursos")
+    a = input(f"\033[1;31m{t['main_prompt']}\033[1;39m")
 
- elif a == "2" or a == "02":
-  os.system("python source/art/b1")
-  print("\n\033[1;31m[\033[1;39m 1\033[1;31m ]\033[1;39m Curso bash 1")
-  print("\033[1;31m[\033[1;39m 2\033[1;31m ]\033[1;39m Curso bash 2")
-  print("\033[1;31m[\033[1;39m 3\033[1;31m ]\033[1;39m Curso bash 3\n")
-  print("\033[1;31m[\033[1;39m 99\033[1;31m ]\033[1;39m Volver al menú\n")
-  c = input("\033[1;31mCURSO-\033[1;39mBASH > ")
-  if c == "1" or c == "01":
-   print("")
-   os.system("bash source/menu/menu_5/bash.1")
-   time.sleep(1)
-   os.system("bash source/cursos")
-  elif c == "2" or c == "02":
-   print("")
-   os.system("bash source/menu/menu_5/bash.2")
-   time.sleep(1)
-   os.system("bash source/cursos")
-  elif c == "3" or c == "03":
-   print("")
-   os.system("bash source/menu/menu_5/bash.3")
-   time.sleep(1)
-   os.system("bash source/cursos")
-  elif c == "99":
-   os.system("bash source/cursos")
+    # --- Python ---
+    if a == "1" or a == "01":
+        os.system(f"python {lang_path}/art/b7")
+        print(f"\n\033[1;31m[\033[1;39m 1\033[1;31m]\033[1;39m {t['python_basic']}")
+        print(f"\033[1;31m[\033[1;39m 2\033[1;31m]\033[1;39m {t['python_advanced']}\n")
+        print(f"\033[1;31m[\033[1;39m 99\033[1;31m]\033[1;39m {t['back_to_menu']}\n")
+        b = input(f"\033[1;31m{t['python_prompt']}\033[1;39m")
+        if b == "1" or b == "01": run_course("python.basic")
+        elif b == "2" or b == "02": run_course("python.dev")
+        elif b == "99": os.system(f"bash {lang_path}/cursos")
+        else: invalid_option(b)
 
-  else:
-   print("\033[1;31m[!]\033[1;39m Opción invalida > ",c)
-   time.sleep(1)
-   os.system("bash source/cursos")
+    # --- Bash ---
+    elif a == "2" or a == "02":
+        os.system(f"python {lang_path}/art/b1")
+        print(f"\n\033[1;31m[\033[1;39m 1\033[1;31m]\033[1;39m {t['bash_1']}")
+        print(f"\033[1;31m[\033[1;39m 2\033[1;31m]\033[1;39m {t['bash_2']}")
+        print(f"\033[1;31m[\033[1;39m 3\033[1;31m]\033[1;39m {t['bash_3']}\n")
+        print(f"\033[1;31m[\033[1;39m 99\033[1;31m]\033[1;39m {t['back_to_menu']}\n")
+        c = input(f"\033[1;31m{t['bash_prompt']}\033[1;39m")
+        if c == "1" or c == "01": run_course("bash.1")
+        elif c == "2" or c == "02": run_course("bash.2")
+        elif c == "3" or c == "03": run_course("bash.3")
+        elif c == "99": os.system(f"bash {lang_path}/cursos")
+        else: invalid_option(c)
 
- elif a == "3" or a == "03":
-  os.system("python source/art/b2")
-  print("\n\033[1;31m[\033[1;39m 1\033[1;31m ]\033[1;39m Curso C basico 1")
-  print("\033[1;31m[\033[1;39m 2\033[1;31m ]\033[1;39m Curso C basico 2")
-  print("\033[1;31m[\033[1;39m 3\033[1;31m ]\033[1;39m Curso C avanzado\n")
-  print("\033[1;31m[\033[1;39m 99\033[1;31m ]\033[1;39m Volver al menú\n")
+    # --- C ---
+    elif a == "3" or a == "03":
+        os.system(f"python {lang_path}/art/b2")
+        print(f"\n\033[1;31m[\033[1;39m 1\033[1;31m]\033[1;39m {t['c_basic_1']}")
+        print(f"\033[1;31m[\033[1;39m 2\033[1;31m]\033[1;39m {t['c_basic_2']}")
+        print(f"\033[1;31m[\033[1;39m 3\033[1;31m]\033[1;39m {t['c_advanced']}\n")
+        print(f"\033[1;31m[\033[1;39m 99\033[1;31m]\033[1;39m {t['back_to_menu']}\n")
+        d = input(f"\033[1;31m{t['c_prompt']}\033[1;39m")
+        if d == "1" or d == "01": run_course("c.basic.1")
+        elif d == "2" or d == "02": run_course("c.basic.2")
+        elif d == "3" or d == "03": run_course("c.dev")
+        elif d == "99": os.system(f"bash {lang_path}/cursos")
+        else: invalid_option(d)
 
-  d = input("\033[1;31mCURSO-\033[1;39mC > ")
-    
-  if d == "1" or d == "01":
-   print("")
-   os.system("bash source/menu/menu_5/c.basic.1")
-   time.sleep(1)
-   os.system("bash source/cursos")
-  elif d == "2" or d == "02":
-   print("")
-   os.system("bash source/menu/menu_5/c.basic.2")
-   time.sleep(1)
-   os.system("bash source/cursos")
-  elif d == "3" or d == "03":
-   print("")
-   os.system("bash source/menu/menu_5/c.dev")
-   time.sleep(1)
-   os.system("bash source/cursos")
-  elif d == "99":
-   os.system("bash source/cursos")
+    # --- HTML ---
+    elif a == "4" or a == "04":
+        os.system("figlet Curso html")
+        print(f"\n\033[1;31m[\033[1;39m 1\033[1;31m]\033[1;39m {t['html_full']}")
+        print(f"\033[1;31m[\033[1;39m 2\033[1;31m]\033[1;39m {t['html_css_js']}\n")
+        print(f"\033[1;31m[\033[1;39m 99\033[1;31m]\033[1;39m {t['back_to_menu']}\n")
+        e = input(f"\033[1;31m{t['html_prompt']}\033[1;39m")
+        if e == "1" or e == "01": run_course("html.dev")
+        elif e == "2" or e == "02": run_course("ht.cs.js")
+        elif e == "99": os.system(f"bash {lang_path}/cursos")
+        else: invalid_option(e)
 
-  else:
-   print("\033[1;31m[!]\033[1;39m Opción invalida > ",d)
-   time.sleep(1)
-   os.system("bash source/cursos")
+    # --- CSS ---
+    elif a == "5" or a == "05":
+        os.system("figlet Curso CSS")
+        print(f"\n\033[1;31m[\033[1;39m 1\033[1;31m]\033[1;39m {t['css_basic']}")
+        print(f"\033[1;31m[\033[1;39m 2\033[1;31m]\033[1;39m {t['css_advanced']}\n")
+        print(f"\033[1;31m[\033[1;39m 99\033[1;31m]\033[1;39m {t['back_to_menu']}\n")
+        w = input(f"\033[1;31m{t['css_prompt']}\033[1;39m")
+        if w == "1" or w == "01": run_course("css.basic")
+        elif w == "2" or w == "02": run_course("css.dev")
+        elif w == "99": os.system(f"bash {lang_path}/cursos")
+        else: invalid_option(w)
 
- elif a == "4" or a == "04":
-  os.system("figlet Curso")
-  os.system("figlet html")
-  print("\n\033[1;31m[\033[1;39m 1\033[1;31m ]\033[1;39m Curso html completo")
-  print("\033[1;31m[\033[1;39m 2\033[1;31m ]\033[1;39m Curso html, css, js\n")
-  print("\033[1;31m[\033[1;39m 99\033[1;31m ]\033[1;39m Volver al menú\n")
+    # --- Javascript ---
+    elif a == "6" or a == "06":
+        os.system(f"python {lang_path}/art/b5")
+        print(f"\n\033[1;31m[\033[1;39m 1\033[1;31m]\033[1;39m {t['js_basic']}")
+        print(f"\033[1;31m[\033[1;39m 2\033[1;31m]\033[1;39m {t['js_css_js']}")
+        print(f"\033[1;31m[\033[1;39m 99\033[1;31m]\033[1;39m {t['back_to_menu']}\n")
+        r = input(f"\033[1;31m{t['js_prompt']}\033[1;39m")
+        if r == "1" or r == "01": run_course("js.basic")
+        elif r == "2" or r == "02": run_course("js.dev")
+        elif r == "99": os.system(f"bash {lang_path}/cursos")
+        else: invalid_option(r)
 
-  e = input("\033[1;31mCURSO-\033[1;39mHTML > ")
-    
-  if e == "1" or e == "01":
-   print("")
-   os.system("bash source/menu/menu_5/html.dev")
-   time.sleep(1)
-   os.system("bash source/cursos")
-  elif e == "2" or e == "02":
-   print("")
-   os.system("bash source/menu/menu_5/ht.cs.js")
-   time.sleep(1)
-   os.system("bash source/cursos")
-  elif e == "99":
-   os.system("bash source/cursos")
+    # --- Hacking ---
+    elif a =="7" or a == "07":
+        os.system(f"figlet {t['hacking_title']}")
+        run_course("hacking")
 
-  else:
-   print("\033[1;31m[!]\033[1;39m Opción invalida > ",e)
-   time.sleep(1)
-   os.system("bash source/cursos")
- elif a == "5" or a == "05":
-  os.system("figlet Curso")
-  os.system("figlet CSS")
-  print("\n\033[1;31m[\033[1;39m 1\033[1;31m ]\033[1;39m Curso css basico")
-  print("\033[1;31m[\033[1;39m 2\033[1;31m ]\033[1;39m Curso css avanzado\n")
-  print("\033[1;31m[\033[1;39m 99\033[1;31m ]\033[1;39m Volver al menú\n")
+    # --- C++ ---
+    elif a == "8" or a == "08":
+        os.system(f"python {lang_path}/art/b3")
+        print(f"\n\033[1;31m[\033[1;39m 1\033[1;31m]\033[1;39m {t['cpp_basic_1']}")
+        print(f"\033[1;31m[\033[1;39m 2\033[1;31m]\033[1;39m {t['cpp_basic_2']}")
+        print(f"\033[1;31m[\033[1;39m 3\033[1;31m]\033[1;39m {t['cpp_advanced']}\n")
+        print(f"\033[1;31m[\033[1;39m 99\033[1;31m]\033[1;39m {t['back_to_menu']}\n")
+        p = input(f"\033[1;31m{t['cpp_prompt']}\033[1;39m")
+        if p == "1" or p == "01": run_course("c++.basic")
+        elif p == "2" or p == "02": run_course("c++.basic1")
+        elif p == "3" or p == "03": run_course("c++.dev")
+        elif p == "99": os.system(f"bash {lang_path}/cursos")
+        else: invalid_option(p)
 
-  w = input("\033[1;31mCURSO-\033[1;39mCSS > ")
-  
-  if w == "1" or w == "01":
-   print("")
-   os.system("bash source/menu/menu_5/css.basic")
-   time.sleep(1)
-   os.system("bash source/cursos")
-  elif w == "2" or w == "02":
-   print("")
-   os.system("bash source/menu/menu_5/css.dev")
-   time.sleep(1)
-   os.system("bash source/cursos")
-  elif w == "99":
-   os.system("bash source/cursos")
+    # --- Java ---
+    elif a == "9" or a == "09":
+        os.system(f"python {lang_path}/art/b4")
+        print(f"\n\033[1;31m[\033[1;39m 1\033[1;31m]\033[1;39m {t['java_basic']}")
+        print(f"\033[1;31m[\033[1;39m 2\033[1;31m]\033[1;39m {t['java_advanced']}\n")
+        print(f"\033[1;31m[\033[1;39m 99\033[1;31m]\033[1;39m {t['back_to_menu']}\n")
+        s = input(f"\033[1;31m{t['java_prompt']}\033[1;39m")
+        if s == "1" or s == "01": run_course("java.basic")
+        elif s == "2" or s == "02": run_course("java.dev")
+        elif s == "99": os.system(f"bash {lang_path}/cursos")
+        else: invalid_option(s)
 
-  else:
-   print("\033[1;31m[!]\033[1;39m Opción invalida > ",w)
-   time.sleep(1)
-   os.system("bash source/cursos")
- elif a == "6" or a == "06":
-  os.system("python source/art/b5")
-  print("\n\033[1;31m[\033[1;39m 1\033[1;31m ]\033[1;39m Curso javascript basico")
-  print("\033[1;31m[\033[1;39m 2\033[1;31m ]\033[1;39m Curso css3, javascript")
-  print("\033[1;31m[\033[1;39m 99\033[1;31m ]\033[1;39m Volver al menú\n")
+    # --- SQL ---
+    elif a == "10":
+        os.system(f"python {lang_path}/art/b8")
+        print(f"\n\033[1;31m[\033[1;39m 1\033[1;31m]\033[1;39m {t['sql_basic']}")
+        print(f"\033[1;31m[\033[1;39m 2\033[1;31m]\033[1;39m {t['sql_advanced']}\n")
+        print(f"\033[1;31m[\033[1;39m 99\033[1;31m]\033[1;39m {t['back_to_menu']}\n")
+        y = input(f"\033[1;31m{t['sql_prompt']}\033[1;39m")
+        if y == "1" or y == "01": run_course("sql.basic")
+        elif y == "2" or y == "02": run_course("sql.dev")
+        elif y == "99": os.system(f"bash {lang_path}/cursos")
+        else: invalid_option(y)
 
-  r = input("\033[1;31mCURSO-\033[1;39mJAVASCRIPT > ")
+    # --- Exit ---
+    elif a == "99":
+        os.system("bash wiki")
+    else:
+        invalid_option(a)
 
-  if r == "1" or r == "01":
-   print("")
-   os.system("bash source/menu/menu_5/js.basic")
-   time.sleep(1)
-   os.system("bash source/cursos")
-  elif r == "2" or r == "02":
-   print("")
-   os.system("bash source/menu/menu_5/js.dev")
-   time.sleep(1)
-   os.system("bash source/cursos")
-  elif r == "99":
-   os.system("bash source/cursos")
-
-  else:
-   print("\033[1;31m[!]\033[1;39m Opción invalida > ",r)
-   time.sleep(1)
-   os.system("bash source/cursos")
-     
- elif a =="7" or a == "07":
-  os.system("figlet Curso")
-  os.system("figlet Hacking")
-  print("")
-  os.system("bash source/menu/menu_5/hacking")
-  time.sleep(1)
-  os.system("bash source/cursos")
-   
- elif a == "8" or a == "08":
-  os.system("python source/art/b3")
-  print("\n\033[1;31m[\033[1;39m 1\033[1;31m ]\033[1;39m Curso c++ basico 1")
-  print("\033[1;31m[\033[1;39m 2\033[1;31m ]\033[1;39m Curso c++ basico 2")
-  print("\033[1;31m[\033[1;39m 3\033[1;31m ]\033[1;39m Curso c++ avanzado\n")
-  print("\033[1;31m[\033[1;39m 99\033[1;31m ]\033[1;39m Volver al menú\n")
-      
-  p = input("\033[1;31mCURSO-\033[1;39mC++ > ")
-
-  if p == "1" or p == "01":
-   print("")
-   os.system("bash source/menu/menu_5/c++.basic")
-   time.sleep(1)
-   os.system("bash source/cursos")
-
-  elif p == "2" or p == "02":
-   print("")
-   os.system("bash source/menu/menu_5/c++.basic1")
-   time.sleep(1)
-   os.system("bash source/cursos")
- 
-  elif p == "3" or p == "03":
-   print("")
-   os.system("bash source/menu/menu_5/c++.dev")
-   time.sleep(1)
-   os.system("bash source/cursos")
-
-  elif p == "99":
-   os.system("bash source/cursos")
-
-  else:
-   print("\033[1;31m[!]\033[1;39m Opción invalida > ",p)
-   time.sleep(1)
-   os.system("bash source/cursos")
-
- elif a == "9" or a == "09":
-  os.system("python source/art/b4")
-  print("\n\033[1;31m[\033[1;39m 1\033[1;31m ]\033[1;39m Curso java basico")
-  print("\033[1;31m[\033[1;39m 2\033[1;31m ]\033[1;39m Curso java avanzado\n")
-  print("\033[1;31m[\033[1;39m 99\033[1;31m ]\033[1;39m Volver al menú\n")
-
-  s = input("\033[1;31mCURSO-\033[1;39mJAVA > ")
-
-  if s == "1" or s == "01":
-   print("")
-   os.system("bash source/menu/menu_5/java.basic")
-   time.sleep(1)
-   os.system("bash source/cursos")
-  elif s == "2" or s == "02":
-   print("")
-   os.system("bash source/menu/menu_5/java.dev")
-   time.sleep(1)
-   os.system("bash source/cursos")
-  elif s == "99":
-   os.system("bash source/cursos")
-
-  else:
-   print("\033[1;31m[!]\033[1;39m Opción invalida > ",s)
-   time.sleep(1)
-   os.system("bash source/cursos")
-		    
- elif a == "10":
-  os.system("python source/art/b8")
-  print("\n\033[1;31m[\033[1;39m 1\033[1;31m ]\033[1;39m Curso sql basico")
-  print("\033[1;31m[\033[1;39m 2\033[1;31m ]\033[1;39m Curso sql avanzado\n")
-  print("\033[1;31m[\033[1;39m 99\033[1;31m ]\033[1;39m Volver al menú\n")
-
-  y = input("\033[1;31mCURSO-\033[1;39mSQL > ")
- 
-  if y == "1" or y == "01":
-   print("")
-   os.system("bash source/menu/menu_5/sql.basic")
-   time.sleep(1)
-   os.system("bash source/cursos")
-  elif y == "2" or y == "02":
-   print("")
-   os.system("bash source/menu/menu_5/sql.dev")
-   time.sleep(1)
-   os.system("bash source/cursos")
-  elif y == "99":
-   os.system("bash source/cursos")
-
-  else:
-   print("\033[1;31m[!]\033[1;39m Opción invalida > ",y)
-   time.sleep(1)
-   os.system("bash source/cursos")
-
- elif a == "99":
-  os.system("bash wiki")
- else:
-  print("\033[1;31m	[!]\033[1;39m Opción invalida > ",a)
-  time.sleep(1)
-  os.system("bash source/cursos")
-  
 except KeyboardInterrupt:
- print("\n\033[1;39mCtrl c presionado")
+    print(f"{t['ctrl_c']}")

@@ -1,0 +1,14 @@
+figlet bc
+echo -e "\e[1;39m
+bc (Basic Calculator) est un utilitaire en ligne de commande qui offre tout ce que vous attendez d'une simple calculatrice scientifique ou financière.
+
+\e[1;32mInstallation:
+\e[1;39m$ pkg install bc
+
+\e[1;33mUtilisation:
+\e[1;39m$ bc
+
+\e[1;36mPoids:\e[1;39m 238KB
+\e[1;36mÉcrit en:\e[1;39m C
+
+"

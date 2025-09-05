@@ -1,0 +1,13 @@
+figlet tree
+echo -e "\e[1;39m
+tree (arbre) est un petit programme en ligne de commande multiplateforme utilisé pour lister ou afficher récursivement le contenu d'un répertoire dans un format arborescent. Il produit les chemins des répertoires et des fichiers dans chaque sous-répertoire et un résumé du nombre total de sous-répertoires et de fichiers.
+
+\e[1;32mInstallation:
+\e[1;39m$ pkg install tree
+
+\e[1;33mUtilisation:
+\e[1;39m$ tree
+
+\e[1;36mPoids:\e[1;39m 119KB
+\e[1;36mÉcrit en:\e[1;39m C
+"

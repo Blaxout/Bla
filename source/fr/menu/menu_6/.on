@@ -1,0 +1,12 @@
+print(""" 
+\033[1;33mAvez-vous des problèmes pour cloner des dépôts ?
+
+\033[1;39mLe problème le plus courant lors du clonage d'un dépôt est que le message suivant apparaît :
+
+\033[;36mGithub@Username:
+Github@Password:
+
+\033[1;39mCela se produit parce que vous copiez mal le lien, vérifiez-le et réessayez.
+
+\033[1;32mSi vous avez un autre problème, vérifiez votre connexion Internet.
+""")

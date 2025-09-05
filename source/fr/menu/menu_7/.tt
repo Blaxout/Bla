@@ -1,0 +1,17 @@
+print('''
+
+\033[1;33mQu'est-ce que Termux:Task?
+
+\033[1;39mLe module complémentaire Termux:Task offre un moyen simple d'appeler des exécutables Termux depuis Tasker et des applications compatibles.
+
+\033[1;33mTéléchargements:
+
+\033[1;32mPlay Store:\033[1;39m https://play.google.com/store/apps/details?id=com.termux.tasker
+
+\033[1;36mPrix:\033[1;39m $1.99
+
+\033[1;33mAptoide( gratuit )
+
+\033[1;39mhttps://termux-task.es.aptoide.com/app
+
+''')

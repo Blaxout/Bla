@@ -1,0 +1,14 @@
+figlet proot
+echo -e "\e[1;39m
+PROOT est une application en espace utilisateur pour chroot, mount --bind et binfmt_misc. Cela signifie que les utilisateurs n'ont besoin d'aucun privilège ou configuration pour faire des choses comme utiliser un répertoire arbitraire comme nouveau système de fichiers racine.
+
+\e[1;32mInstallation:
+\e[1;39m$ pkg install proot
+
+\e[1;33mUtilisation:
+\e[1;39m$ proot -w -0 ~ $PREFIX/bin/bash
+ 
+Pour quitter, tapez exit.
+
+\e[1;36mPoids: \e[1;39m 201KB
+"

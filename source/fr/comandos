@@ -1,0 +1,28 @@
+clear
+lang_path="source/$WIKI_LANG"
+python "$lang_path/art/banner1"
+bash "$lang_path/.core"
+echo -e "
+	\033[1;31m[\033[1;39m 1\033[1;31m ] \033[1;39mCommandes de base
+        \033[1;31m[\033[1;39m 2\033[1;31m ] \033[1;39mInformations système
+        \033[1;31m[\033[1;39m 3\033[1;31m ] \033[1;39mFichiers et Dossiers
+        \033[1;31m[\033[1;39m 4\033[1;31m ] \033[1;39mTrouver/Chercher des Fichiers
+        \033[1;31m[\033[1;39m 5\033[1;31m ] \033[1;39mInformation sur l'espace (fichiers)
+        \033[1;31m[\033[1;39m 6\033[1;31m ] \033[1;39mGérer les mots de passe
+        \033[1;31m[\033[1;39m 7\033[1;31m ] \033[1;39mPermissions sur les fichiers
+        \033[1;31m[\033[1;39m 8\033[1;31m ] \033[1;39mAttributs Spéciaux
+        \033[1;31m[\033[1;39m 9\033[1;31m ] \033[1;39mArchives et Fichiers compressés
+        \033[1;31m[\033[1;39m 10\033[1;31m ] \033[1;39mPaquets DEB
+        \033[1;31m[\033[1;39m 11\033[1;31m ] \033[1;39mAPT
+        \033[1;31m[\033[1;39m 12\033[1;31m ] \033[1;39mVoir le contenu d'un fichier
+        \033[1;31m[\033[1;39m 13\033[1;31m ] \033[1;39mManipulation de texte
+        \033[1;31m[\033[1;39m 14\033[1;31m ] \033[1;39mAnalyse du système de fichiers
+        \033[1;31m[\033[1;39m 15\033[1;31m ] \033[1;39mFormater un système de fichiers
+        \033[1;31m[\033[1;39m 16\033[1;31m ] \033[1;39mSauvegarde (Backup)
+        \033[1;31m[\033[1;39m 17\033[1;31m ] \033[1;39mTravailler avec le RÉSEAU (lan et wi-fi)
+        \033[1;31m[\033[1;39m 18\033[1;31m ] \033[1;39mMonitoring et débogage
+        \033[1;31m[\033[1;39m 19\033[1;31m ] \033[1;39mAutres commandes
+
+        \033[1;31m[\033[1;39m 99\033[1;31m ] \033[1;39mRetour au menu
+"
+python source/lib/.readpy0

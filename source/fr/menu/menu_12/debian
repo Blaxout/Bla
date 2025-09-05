@@ -1,0 +1,12 @@
+echo -e "
+\e[1;39mDebian GNU/Linux est un système d'exploitation libre, développé par des milliers de volontaires du monde entier, qui collaborent via Internet. Wikipedia
+		      
+\e[1;36mGestionnaires de paquets:\e[1;39m Advanced Packaging Tool (front-end), dpkg
+\e[1;36mLicence:\e[1;39m Licences compatibles DFSG
+\e[1;36mUserland:\e[1;39m GNU
+\e[1;36mDate de lancement:\e[1;39m 15 septembre 1993
+\e[1;36mDéveloppeur:\e[1;39m Debian
+
+\e[1;33mInstallation:
+\e[1;39mhttps://www.comoinstalarlinux.com/como-instalar-debian-10-ahora/#:~:text=Para%20descargar%20el%20archivo%20ISO,encontrar%20una%20lista%20de%20im%C3%A1genes%20.
+"

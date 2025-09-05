@@ -1,0 +1,12 @@
+echo -e "
+\e[1;39mUbuntu est un système d'exploitation open source et libre. C'est une distribution Linux basée sur Debian. Il fonctionne actuellement sur les ordinateurs de bureau et les serveurs. Il est destiné à l'utilisateur moyen, avec un fort accent sur la facilité d'utilisation et l'amélioration de l'expérience utilisateur.
+
+\e[1;36mDate de lancement initiale:\e[1;39m 20 octobre 2004
+\e[1;36mInterface utilisateur par défaut:\e[1;39m GNOME
+\e[1;36mSystème de gestion de paquets:\e[1;39m dpkg + APT, avec des interfaces comme GNOME Software
+\e[1;36mMéthode de mise à jour:\e[1;39m Software Updater
+\e[1;36mLangages de programmation:\e[1;39m Python, Java, C, C++, C#
+
+\e[1;33mInstallation:
+\e[1;39mhttps://ubuntu.com
+"

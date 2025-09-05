@@ -1,0 +1,15 @@
+figlet Tor
+echo -e "\e[1;39m
+Tor est un projet dont l'objectif principal est le développement d'un réseau de communication distribué à faible latence et superposé à Internet, dans lequel le routage des messages échangés est effectué.
+
+\e[1;32mInstallation:
+\e[1;39m$ pkg install tor
+
+\e[1;33mUtilisation:
+\e[1;39m$ tor
+
+\e[1;36mPoids: \e[1;39m11.1MB
+\e[1;36mSystème d'exploitation: \e[1;39mUnix-Like (Android, Linux, BSD, MacOS X) Microsoft Windows
+\e[1;36mDéveloppeur: \e[1;39mLe Projet Tor; Roger Dingledine
+\e[1;36mÉcrit en: \e[1;39mC, Python
+"
